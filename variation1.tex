@@ -104,7 +104,7 @@ From the plots, we find that when the recovery rate is low (0.3), finally all pe
 
 
 
-When b = 5, each individual has five interactions each day that could spread the disease. These plots suggest that when each individual get contacts with five infectious people per day, if the recovery rate is 0.3, then finally all people are removed after 20 days; if the recovery rate is 0.5, all people are removed after 10 days; even if the recovery rate is 0.8, less than 10 percent of individuals will remain susceptible after 10 days. As a result, when b is large enough, no matter how large k is, almost all people will be removed eventually, which means that all people will be infected and left with different results. Hence, people should avoid contacting in person with infectious people. Some suggestions include staying at home as much as possible and avoiding visiting areas where the disease is prevalent. 
+When b = 5, each individual has five interactions each day that could spread the disease. These plots suggest that when each individual get contacts with five infectious people per day, if the recovery rate is 0.3, then finally all people are removed after 20 days; if the recovery rate is 0.5, all people are removed after 10 days; even if the recovery rate is 0.8, less than 10$\%$ of individuals will remain susceptible after 10 days. As a result, when b is large enough, no matter how large k is, almost all people will be removed eventually, which means that all people will be infected and left with different results. Hence, people should avoid contacting in person with infectious people. Some suggestions include staying at home as much as possible and avoiding visiting areas where the disease is prevalent. 
 
 
 Now, we want to investigate some qualitative behaviors of the simulations based on the parameters b and k in the phase diagrams. 
@@ -127,6 +127,26 @@ The simulations are done with T values 10, 20 and 30 days for both discrete and 
 
 In figure 3, three phase diagrams illustrate the percentage of population infected and removed, i.e., the total percentage of population infected. It depends on both b, the number of interactions per day per individual that could spread the disease, and k, the recovery rate. The diagrams look very similar for different lengths of simulation (10, 20, and 30 days). It is clear that as k increases and b decreases, the total percentage of population infected decreases. If each individual only has less than two interactions per day that could spread the disease and the recovery rate is higher than 0.6, then almost nobody will be infected over time. The yellow area represents that everyone is eventually infected. When k is less or equal to 0.2, then everyone is eventually infected. Also, when b is larger than 6, everyone is eventually infected. Furthermore, when b is relatively small (less than 7) but k is relatively large (larger than 0.3), everyone is eventually infected. More precisely, the cut edge between the area where all individuals are infected and the remaining area is approximately linear, so that we may estimate the edge by $b = 10k - 3$. Therefore, when $b - 10k + 3 > 0$, everyone is eventually infected. 
 
+We set b is larger than 1 in the above simulations. However, b can be less than 1. For instance, b = 0.5 is equivalent to say, each individual has 50$\%$ chance to be infected by one interaction with infectious people per day. 
+
+
+\begin{figure}[htp]
+
+\centering
+\includegraphics[width=.3\textwidth]{Figure1_discrete_bsmall_T10.png}\hfill
+\includegraphics[width=.3\textwidth]{Figure1_discrete_bsmall_T20.png}\hfill
+\includegraphics[width=.3\textwidth]{Figure1_discrete_bsmall_T30.png}
+
+\caption{Phase diagrams for percentage of population infected and removed (i+r), discrete}
+\label{fig:figure3}
+
+\end{figure}
+
+
+There are some interesting findings in figure 4. When T = 10, only when b is larger than 0.7 and k is smaller than 0.3, everyone is eventually infected. However, as T increases, the yellow area takes more space in the phase diagram, which means the range of parameters b and k is wider corresponding to where everyone is eventually infected. We do not observe effect of T in figure 3, but here it seems that for T = 30 even if b is really small and k is moderate, there still exists chance that everyone is infected.
+
+
+
 \begin{figure}[htp]
 
 \centering
@@ -140,8 +160,25 @@ In figure 3, three phase diagrams illustrate the percentage of population infect
 \end{figure}
 
 
+Then, we try to discover the parameter regimes that i will quickly go to 0. Figure 5 shows the phase diagrams for only infected population. We conclude that the percentage of infected people will quickly goes to 0, if the recovery rate k is large. Specifically, our simulations demonstrate when k is larger than 0.3, i will quickly go to 0 regardless of b. 
 
-Then, we try to discover the parameter regimes that i will quickly go to 0. Figure 4 shows the phase diagrams for only infected population. We conclude that the percentage of infected people will quickly goes to 0, if the recovery rate k is large. Specifically, our simulations demonstrate when k is larger than 0.3, i will quickly go to 0 regardless of b. 
+
+
+\begin{figure}[htp]
+
+\centering
+\includegraphics[width=.3\textwidth]{Figure1_discrete_bsmall_infectT10.png}\hfill
+\includegraphics[width=.3\textwidth]{Figure1_discrete_bsmall_infectT20.png}\hfill
+\includegraphics[width=.3\textwidth]{Figure1_discrete_bsmall_infectT30.png}
+
+\caption{Phase diagrams for percentage of population infected (i), discrete}
+\label{fig:figure3}
+
+\end{figure}
+
+Based on figure 6, when b is really small, the percentage of infected people can go to 0 even if the recovery rate k is small. 
+
+
 
 
 \subsection{Continuous/ODE-Based Model}
@@ -149,10 +186,16 @@ Then, we try to discover the parameter regimes that i will quickly go to 0. Figu
 
 
 
-\section{Part 4}
+
+
+
+
+
+
+
+\section{Variations and Improvements}
 \subsection{Modelling the usage of mask}
-Although it is now recommended and a common practice to wear mask to limit the spread of COVID 19, it is very controversial at the beginning of the pandemic that whether it is neccesary and efficient to wear mask. In this variation, we will study how the use of mask will influence the percentage of deaths and hospitalizations with respect to different infectious contact rate. The model is based on the paper "To mask or not to mask: Modeling the potential for face mask
-use by the general public to curtail the COVID-19 pandemic" by Steffen E. Eikenberry et al.
+In this section, we study the effectiveness of mask in the spreading of the novel COVID-19 disease and develop a variation of the susceptible-infected-removed (SIR) model that provides a theoretical framework to investigate its spread within a community. More specifically, we will investigate how the use of mask will influence the percentage of deaths and hospitalizations with respect to different infectious contact rate.The model is based on the paper "To mask or not to mask: Modeling the potential for face mask use by the general public to curtail the COVID-19 pandemic" by Steffen E. Eikenberry et al. Although it is now recommended and a common practice to wear mask to limit the spread of COVID 19, it is very controversial at the beginning of the pandemic that whether it is neccesary and efficient to wear mask. So, we believe it is meaningful to understand quantitatively more about this topic.
 In this model, we will introduce seven varaibles. S(t),E(t),I(t),H(t),A(t),R(t) each denote susceptible, exposed, symptomatic infectious, hospitalized, asymptomatic infectious, and recovered classes, with an assumption that people progress from \\
 S $\rightarrow$ E $\rightarrow$ A $\rightarrow$ I $\rightarrow$H \\ At each state, infectious people will be able to recover, and only people in severe condition will go to hosptial and may die.\\D(t) is also included to track cumulative deaths. Two sets of ODE euqations will be used during simulation to find how use of mask will impact the spread of disease. We first consider a baseline model for the case where no masks are used. In the second set of odes, we will introduce more variables
 $S_{U}(t)$,$E_{U}(t)$,$I_{U}(t)$,$H_{U}(t)$,$A_{U}(t)$,$R_{U}(t)$,$S_{M}(t)$,$E_{M}(t)$,$I_{M}(t)$,$H_{M}(t)$,$A_{M}(t)$,$R_{M}(t)$ to divide the population in two part: The population wearing masks and the one not wearing masks
@@ -186,6 +229,7 @@ Here, an assumption is made that the inward efficiency and outward efficiency of
 
 \subsection{Fitting the data with SIR model}
 
+\subsection{Data visualization of Covid-19}
 
 
 

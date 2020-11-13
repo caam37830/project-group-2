@@ -48,7 +48,7 @@ def run_Simulation2(b, k, N=100, T=10, start = 1):
 def checktotalinfect(b, k, N, T, start = 1):
     """
     Compute the total percentage of the population infected (i+r) and 
-    percentage of the population infected (i)
+    percentage of the population infected (i) for b >= 1
     """
     recover = [0]
     infect  = [start]
@@ -77,6 +77,7 @@ def checktotalinfect(b, k, N, T, start = 1):
 def plotphasediagram(blist, klist, N, T, start):
     """
     Generate phase diagram of total percentage of the population infected (i+r)
+    for b >= 1
     """
     cts = np.zeros((len(blist), len(klist)))
     for j,b in enumerate(blist):
@@ -94,6 +95,7 @@ def plotphasediagram(blist, klist, N, T, start):
 def plotphasediagraminfect(blist, klist, N, T, start):
     """
     Generate phase diagram of percentage of the population infected (i)
+    for b >= 1
     """
     cts = np.zeros((len(blist), len(klist)))
     for j,b in enumerate(blist):
@@ -137,6 +139,77 @@ plotphasediagraminfect(blist, klist, N=20000, T = 30, start = 100)
 
 
 
+# For b < 1, re-define the functions as below
+
+def checkinfectbsmall(b,k,N,T,start=1):
+    """
+    Compute the total percentage of the population infected (i+r) and 
+    percentage of the population infected (i) for b < 1
+    """
+    recover = [0]
+    infect  = [start]
+    suspect = [N-start]
+    pop = [Person() for i in range(N)]
+    np.random.seed(10)
+    for i in range(start):
+        pop[i].get_infected();
+    for i in range(T):
+        for j in range(N):
+            if pop[j].is_infected():
+                contact = np.random.randint(N, size= 1)
+                if np.random.rand()< b:
+                    pop[contact[0]].get_infected()
+        for j in range(N):
+            if pop[j].is_infected():
+                if np.random.rand()<k:
+                    pop[j].get_recovered()
+    return np.array([(count_infect(pop)+count_recover(pop))/N,count_infect(pop)/N])
+
+
+def plotphasediagramsmall(blist,klist,N,T,start):
+    """
+    Generate phase diagram of total percentage of the population infected (i+r)
+    for b < 1
+    """
+    cts = np.zeros((len(blist), len(klist)))
+    for j,b in enumerate(blist):
+        for i,k in enumerate(klist):
+            cts[j,i] = checkinfectbsmall(b,k,N,T,start)[0]      
+    plt.imshow(cts,extent=[np.min(klist),np.max(klist),np.min(blist),np.max(blist)], aspect="auto")
+    plt.colorbar()
+    plt.xlabel("k")
+    plt.ylabel("b")
+    plt.title("Percentage of Population Infected and Removed \n T = "+str(T)+", Discrete")
+    plt.show()
+    
+    
+    
+def plotphasediagraminfectsmall(blist,klist,N,T,start):
+    """
+    Generate phase diagram of percentage of the population infected (i)
+    for b < 1
+    """
+    cts = np.zeros((len(blist), len(klist)))
+    for j,b in enumerate(blist):
+        for i,k in enumerate(klist):
+            cts[j,i] = checkinfectbsmall(b,k,N,T,start)[1]
+    plt.imshow(cts,extent=[np.min(klist),np.max(klist),np.min(blist),np.max(blist)], aspect="auto")
+    plt.colorbar()
+    plt.xlabel("k")
+    plt.ylabel("b")
+    plt.title("Percentage of Population Infected \n T = "+str(T)+", Discrete")
+    plt.show()
+    
+    
+# Phase diagrams for b < 1
+blist = np.arange(1, 0, -0.1)
+klist = np.arange(0, 1, 0.1)
+plotphasediagramsmall(blist, klist, 20000, 10, 100)
+plotphasediagramsmall(blist, klist, 20000, 20, 100)
+plotphasediagramsmall(blist, klist, 20000, 30, 100)
+plotphasediagraminfectsmall(blist, klist, 20000, 10, 100)
+plotphasediagraminfectsmall(blist, klist, 20000, 20, 100)
+plotphasediagraminfectsmall(blist, klist, 20000, 30, 100)
 
 
 
@@ -145,9 +218,12 @@ plotphasediagraminfect(blist, klist, N=20000, T = 30, start = 100)
 
 
 
-# ODE simulations and plots
+# ODE continuous simulations and plots
 
 def odesimulation(t, x, b, k):
+    """
+    Generate ODE simulation
+    """
     s = x[0]
     i = x[1]
     r = x[2]
@@ -158,6 +234,9 @@ def odesimulation(t, x, b, k):
 
 
 def convertvector(x):
+    """
+    Convert s, i, r into vector of percentage
+    """
     s = x[0]
     i = x[1]
     r = x[2]
@@ -165,19 +244,25 @@ def convertvector(x):
 
 
 def runodesimulation(tspan, xstart, b, k, teval):
+    """
+    Run ODE simulation with plot 
+    """
     xstart = convertvector(xstart)
     sol = solve_ivp(odesimulation, tspan, xstart, args = (b, k), t_eval = teval)
-    plt.plot(sol.t, sol.y[0], label ="suspectial people")
-    plt.plot(sol.t, sol.y[1], label ="infected people")
-    plt.plot(sol.t, sol.y[2], label ="recovered people")
-    plt.title("odesimulation with s = " + str(xstart[0]) + "i = "+str(xstart[1]))
+    plt.plot(sol.t, sol.y[0], label = "s: percentage of susceptible")
+    plt.plot(sol.t, sol.y[1], label = "i: percentage of infected")
+    plt.plot(sol.t, sol.y[2], label = "r: percentage of removed")
+    plt.title("ODE Simulation with s0 = " + str(xstart[0]) + "i0 = "+str(xstart[1]))
     plt.xlabel("days")
     plt.ylabel("percentage")
     plt.legend()
     plt.show()
-
     
 def checktotalinfectpeople(x, b, k, T):
+    """
+    Compute the total percentage of the population infected (i+r) and 
+    percentage of the population infected (i) for b >= 1
+    """
     x = convertvector(x)
     tspan = (0, T)
     xstart = x
@@ -189,6 +274,10 @@ def checktotalinfectpeople(x, b, k, T):
 
 
 def plotodephasediagram(x, blist, xlist, T):
+    """
+    Generate ODE phase diagram of total percentage of the population infected (i+r)
+    for b >= 1
+    """
     cts = np.zeros((len(blist), len(xlist)))
     for j,b in enumerate(blist):
         for i,k in enumerate(klist):
@@ -203,6 +292,10 @@ def plotodephasediagram(x, blist, xlist, T):
 
 
 def plotodeinfectphasediagram(x, blist, xlist, T):
+    """
+    Generate ODE phase diagram of percentage of the population infected (i)
+    for b >= 1
+    """
     cts = np.zeros((len(blist), len(xlist)))
     for j,b in enumerate(blist):
         for i,k in enumerate(klist):
