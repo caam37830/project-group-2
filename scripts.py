@@ -220,8 +220,6 @@ plotphasediagraminfectsmall(blist, klist, 20000, 30, 100)
 
 
 
-
-
 # ODE continuous simulations and plots
 
 def odesimulation(t, x, b, k):
@@ -330,7 +328,7 @@ runodesimulation(tspan, xstart, 5, 0.8, teval1)
 
 
 
-# Generate phase diagrams
+# Generate phase diagrams for b >= 1
 xstart = np.array([19900, 100, 0])
 blist = np.arange(10, 0, -1)
 klist = np.arange(0, 1, 0.1)
