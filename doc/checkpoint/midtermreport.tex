@@ -44,7 +44,7 @@
    % \vfill
     \vspace{4.5cm}
     \LARGE
-    Yujin Liu, Helen Jin, Jiangmeng Li\\
+    Group 2: Yujin Liu, Helen Jin, Jiangmeng Li\\
     \vspace{4.5cm}
     \Large
     CAAM37830\\
@@ -87,7 +87,7 @@ $$\frac{di}{dt} = b * s(t) * i(t) - k * i(t)$$
 
 
 \section{Python Package 'sir'}
-  The package sir just contains one file agent.py.Thie file contains the class Person, which we used to construct the individuals in agent-based model.Apart from that, we also have several functions to count the infected people, recovered people and susceptible people among the group.We test all these functions in test.py.
+The package `sir` just contains one file agent.py for now. It includes the class `Person`, which we used to construct the states of individuals in the discrete agent-based model. Apart from that, there are several functions to count the number of infected people, recovered people and susceptible people among the population. For the continuous ODE model, we simply put the code in the scripts.py. We test all these functions in test.py. 
 
 
 
@@ -333,10 +333,13 @@ Therefore, the ODE continuous simulation and the discrete simulation agree in re
 
 \section{Variations and Improvements}
 \subsection{Modelling the usage of mask}
-In this section, we study the effectiveness of mask in the spreading of the novel COVID-19 disease and develop a variation of the susceptible-infected-removed (SIR) model that provides a theoretical framework to investigate its spread within a community. More specifically, we will investigate how the usage of mask will influence the percentage of deaths and hospitalizations with respect to different infectious contact rate.The model is based on the paper "To mask or not to mask: Modeling the potential for face mask use by the general public to curtail the COVID-19 pandemic" by Steffen E. Eikenberry et al. In this model, we will introduce seven varaibles. S(t),E(t),I(t),H(t),A(t),R(t) each denote susceptible, exposed, symptomatic infectious, hospitalized, asymptomatic infectious, and recovered classes, with an assumption that people progress from \\
-S $\rightarrow$ E $\rightarrow$ A $\rightarrow$ I $\rightarrow$H \\ At each state, infectious people will be able to recover, and only people in severe condition will go to hosptial and may die.\\D(t) is also included to track cumulative deaths. Two sets of ODE euqations will be used during simulation to find how use of mask will impact the spread of disease. We first consider a baseline model for the case where no masks are used. In the second set of ODEs, we will introduce more variables
-$S_{U}(t)$,$E_{U}(t)$,$I_{U}(t)$,$H_{U}(t)$,$A_{U}(t)$,$R_{U}(t)$,$S_{M}(t)$,$E_{M}(t)$,$I_{M}(t)$,$H_{M}(t)$,$A_{M}(t)$,$R_{M}(t)$ to divide the population in two part: the population wearing masks and the one not wearing masks.
+
+In this section, we study the effectiveness of mask in the spreading of the novel COVID-19 disease and develop a variation of the susceptible-infected-removed (SIR) model that provides a theoretical framework to investigate its spread within a community. More specifically, we will investigate how the usage of mask will influence the percentage of deaths and hospitalizations with respect to different infectious contact rate.The model is based on the paper "To mask or not to mask: Modeling the potential for face mask use by the general public to curtail the COVID-19 pandemic" by Steffen E. Eikenberry et al. In this model, we will introduce seven variables. S(t), E(t), I(t), H(t), A(t), R(t) each denote susceptible, exposed, symptomatic infectious, hospitalized, asymptomatic infectious, and recovered classes, with an assumption that people progress from \\
+$$S \rightarrow E \rightarrow A \rightarrow I \rightarrowH. $$ \\ 
+At each state, infectious people will be able to recover, and only people in severe condition will go to hospital and may die. D(t) is also included to track cumulative deaths. Two sets of ODE equations will be used during simulation to find how use of mask will impact the spread of disease. We first consider a baseline model for the case where no masks are used. In the second set of ODEs, we will introduce more variables
+$S_{U}(t)$, $E_{U}(t)$, $I_{U}(t)$, $H_{U}(t)$, $A_{U}(t)$, $R_{U}(t)$, $S_{M}(t)$, $E_{M}(t)$, $I_{M}(t)$, $H_{M}(t)$, $A_{M}(t)$, $R_{M}(t)$ to divide the population in two part: the population wearing masks and the one not wearing masks.
 Here are the two sets of ODEs:\\
+
 \begin{minipage}{0.45\textwidth}
 \begin{eqnarray}
   \frac{dS}{dt} &=& -\beta{(t)}(I+\eta A)\frac{S}{N}\nonumber\\
@@ -368,12 +371,9 @@ Here are the two sets of ODEs:\\
   \end{eqnarray}
 \end{minipage}
 
-We will run the simulation and record what happens in several days. \\Here, $\beta$ is the infectious contact rate, $\sigma$ is the transition exposed to infectious\\$\eta$ is the infectiousness factor for asymptomatic carriar, $\alpha$ is the fraction of infections that become symptomatic\\
-$\phi$ is rate of hospitalization,$\gamma_{A}$ is the recovery rate for asymptomatic
-\\$\gamma_{I}$ is the recovery rate, symptomatic,$\gamma_{H}$ is the recovery rate for hospitalized.\\$\sigma$ is the death rate in hospital.$\epsilon_{0}$ is the outward efficiency of the masks while $\epsilon_{i}$ is the inward efficiency of the masks.\\
+We will run the simulation and record what happens in several days. Here, $\beta$ is the infectious contact rate, $\sigma$ is the transition exposed to infectious, $\eta$ is the infectiousness factor for asymptomatic carriar, $\alpha$ is the fraction of infections that become symptomatic, $\phi$ is rate of hospitalization, $\gamma_{A}$ is the recovery rate for asymptomatic, $\gamma_{I}$ is the recovery rate, symptomatic, $\gamma_{H}$ is the recovery rate for hospitalized, $\sigma$ is the death rate in hospital, $\epsilon_{0}$ is the outward efficiency of the masks, while $\epsilon_{i}$ is the inward efficiency of the masks.
 
-We will find the default estimated values for all parameters with population masked and not masked from the source \cite{Steff2020mask}.
-Here, an assumption is made that the inward efficiency and outward efficiency of masks are the same($\epsilon_{0} = \epsilon_{1}$. We will draw a 2 dimensional phase diagram to show how the efficiency of mask(homemade mask or surgery mask) and the percentage of masked people will influence the hospitalization as well as the total deaths among the population.
+Then we find the default estimated values for all parameters with population masked and not masked from the source \cite{Steff2020mask}. Here, an assumption is made that the inward efficiency and outward efficiency of masks are the same $\epsilon_{0} = \epsilon_{1}$. We will draw a 2 dimensional phase diagram to show how the efficiency of mask (homemade mask or surgery mask) and the percentage of masked people will influence the hospitalization as well as the total deaths among the population.
 
 
 
@@ -391,8 +391,8 @@ The dataset describes the sperad of SARS in China from 2003-03-17 to 2003-06-01.
   \frac{dD}{dt} &=& \gamma_{H}*I*\delta\\
 \end{eqnarray}
 
-Using the data from 2003-03-17 to 2003-04-22, we will determine the values of $\beta$, k and the death rate $\delta$ by tuning these parameters so that MSE(Mean Squared Error) between the simulated data and real data (S-t,R-t,D-t) is minimized. Then, we will find appropriate $\gamma_{H}$ so that the first half and second half of the data allign with each other. Since almost all sick people were sent to the hospital located in Beijing, we expect a $\gamma_{H}$ close to 1.
-Finally, we will build a line plot showing the relationship between the time duration of SARS coronavirus(end point is set to no one being infected) and the percentage of hospitalization($\gamma_{H}$).
+Using the data from 2003-03-17 to 2003-04-22, we will determine the values of $\beta$, k and the death rate $\delta$ by tuning these parameters so that MSE(Mean Squared Error) between the simulated data and real data (S-t, R-t, D-t) is minimized. Then, we will find appropriate $\gamma_{H}$ so that the first half and second half of the data allign with each other. Since almost all sick people were sent to the hospital located in Beijing, we expect a $\gamma_{H}$ close to 1.
+Finally, we will build a line plot showing the relationship between the time duration of SARS coronavirus (end point is set to no one being infected) and the percentage of hospitalization ($\gamma_{H}$).
 
 
 
@@ -412,7 +412,3 @@ The paper that we need to replicate for mask usage \cite{Steff2020mask}, the SAR
 
 \printbibliography
 
-
-
-
-\end{document}
