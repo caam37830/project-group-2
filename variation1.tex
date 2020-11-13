@@ -44,11 +44,12 @@
 
 \section{Part 4}
 \subsection{Modelling the usage of mask}
-In this section,we will try to discover how the usage of mask will influence the percentage of death people and percentage of hospitalized people with different infectious contact rate.
-To be specific, we will intoduce 7 factors. S(t),E(t),I(t),H(t),A(t),R(t) to represent susceptible, exposed, symptomatic infectious, hospitalized, asymptomatic infectious, and recovered people.We make the assumption that people change from \\
-S $\rightarrow$ E $\rightarrow$ A $\rightarrow$ I $\rightarrow$H \\ Each state , infectious people will be able to recover. Only the severe people will go to hosptial and then come to death.\\We will use D(t) to keep track of the death rate.We will also use ode simulation to find how usage of mask will impact people.There are two groups of ode equations. Firstly we will set up a group of odes to describe the case there is no mask usage. In the second group of odes, we will introduce more variables
-$S_{U}(t)$,$E_{U}(t)$,$I_{U}(t)$,$H_{U}(t)$,$A_{U}(t)$,$R_{U}(t)$,$S_{M}(t)$,$E_{M}(t)$,$I_{M}(t)$,$H_{M}(t)$,$A_{M}(t)$,$R_{M}(t)$ to divide the population in two part: The population wearing masks and the population not wearing masks
-Here are two groups of Odes:\\
+Although it is now recommended and a common practice to wear mask to limit the spread of COVID 19, it is very controversial at the beginning of the pandemic that whether it is neccesary and efficient to wear mask. In this variation, we will study how the use of mask will influence the percentage of deaths and hospitalizations with respect to different infectious contact rate. The model is based on the paper "To mask or not to mask: Modeling the potential for face mask
+use by the general public to curtail the COVID-19 pandemic" by Steffen E. Eikenberry et al.
+In this model, we will introduce seven varaibles. S(t),E(t),I(t),H(t),A(t),R(t) each denote susceptible, exposed, symptomatic infectious, hospitalized, asymptomatic infectious, and recovered classes, with an assumption that people progress from \\
+S $\rightarrow$ E $\rightarrow$ A $\rightarrow$ I $\rightarrow$H \\ At each state, infectious people will be able to recover, and only people in severe condition will go to hosptial and may die.\\D(t) is also included to track cumulative deaths. Two sets of ODE euqations will be used during simulation to find how use of mask will impact the spread of disease. We first consider a baseline model for the case where no masks are used. In the second set of odes, we will introduce more variables
+$S_{U}(t)$,$E_{U}(t)$,$I_{U}(t)$,$H_{U}(t)$,$A_{U}(t)$,$R_{U}(t)$,$S_{M}(t)$,$E_{M}(t)$,$I_{M}(t)$,$H_{M}(t)$,$A_{M}(t)$,$R_{M}(t)$ to divide the population in two part: The population wearing masks and the one not wearing masks
+Here are two sets of Odes:\\
 \begin{minipage}{0.45\textwidth}
 \begin{eqnarray}
   \frac{dS}{dt} &=& -\beta{(t)}(I+\eta A)\frac{S}{N}\nonumber\\
@@ -68,12 +69,12 @@ Here are two groups of Odes:\\
   \end{eqnarray}
 \end{minipage}
 
-We will run the simulation and observe what happens several days. \\Here,$\beta$ is the infectious contact rate, $\sigma$ is the transition exposed to infectious\\$\eta$ is the infectiousness factor for asymptomatic carriar, $\alpha$ is the fractious of infections that become symptomatic\\
+We will run the simulation and observe what will happen in several days. \\Here,$\beta$ is the infectious contact rate, $\sigma$ is the transition exposed to infectious\\$\eta$ is the infectiousness factor for asymptomatic carriar, $\alpha$ is the fraction of infections that become symptomatic\\
 $\phi$ is rate of hospitalization,$\gamma_{A}$ is the recovery rate for asymptomatic
-\\$\gamma_{I}$ is the recovery rate,symptomatic,$\gamma_{H}$ is the recovery rate for hospitalized.\\$\sigma$ is the death rate in hospital.$\epsilon_{0}$ is the outward efficiency of the masks while $\epsilon_{i}$ is the inward efficiency of the masks.\\
+\\$\gamma_{I}$ is the recovery rate, symptomatic,$\gamma_{H}$ is the recovery rate for hospitalized.\\$\sigma$ is the death rate in hospital.$\epsilon_{0}$ is the outward efficiency of the masks while $\epsilon_{i}$ is the inward efficiency of the masks.\\
 
-We will find the default estimated values all the parameters. We divide the whole population into two groups masked and not masked.
-We also make the assumption that inward efficiency and outward efficiency of masks are same($\epsilon_{0} = \epsilon_{1}$. We will draw a 2 dimensional phase diagram to show how the efficiency of mask(homemade mask or surgery mask) and how the percentage of people wearing the mask will influence the percentage of hospitalized people as well as the total death people among the population. The whole idea comes from the paper and we will try to replicate it.
+We will find the default estimated values for all parameters with population masked and not masked.
+Here, an assumption is made that the inward efficiency and outward efficiency of masks are the same($\epsilon_{0} = \epsilon_{1}$. We will draw a 2 dimensional phase diagram to show how the efficiency of mask(homemade mask or surgery mask) and the percentage of masked people will influence the hospitalization as well as the total deaths among the population. 
 
 
 \subsection{Fitting the data with SIR model}
