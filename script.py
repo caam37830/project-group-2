@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 
 def run_Simulation2(b, k, N=100, T=10, start = 1):
     """
-    Run the discrete simulation and plot s, i, r 
+    Run the discrete simulation and plot s, i, r
     """
     recover = [0]
     infect  = [start]
@@ -47,11 +47,11 @@ def run_Simulation2(b, k, N=100, T=10, start = 1):
     plt.legend()
     plt.show()
 
-    
-    
+
+
 def checktotalinfect(b, k, N, T, start = 1):
     """
-    Compute the total percentage of the population infected (i+r) and 
+    Compute the total percentage of the population infected (i+r) and
     percentage of the population infected (i) for b >= 1
     """
     recover = [0]
@@ -94,7 +94,7 @@ def plotphasediagram(blist, klist, N, T, start):
     plt.xlabel("k")
     plt.ylabel("b")
     plt.show()
-    
+
 
 def plotphasediagraminfect(blist, klist, N, T, start):
     """
@@ -112,11 +112,11 @@ def plotphasediagraminfect(blist, klist, N, T, start):
     plt.xlabel("k")
     plt.ylabel("b")
     plt.show()
-    
 
-# Produce some plots of how s, i, and r change over the length of the simulation 
+
+# Produce some plots of how s, i, and r change over the length of the simulation
 # Fix b = 2
-run_Simulation2(b = 2, k = 0.3, N=20000, T=35, start=100) 
+run_Simulation2(b = 2, k = 0.3, N=20000, T=35, start=100)
 run_Simulation2(b = 2, k = 0.5, N=20000, T=35, start=100)
 run_Simulation2(b = 2, k = 0.8, N=20000, T=35, start=100)
 
@@ -147,7 +147,7 @@ plotphasediagraminfect(blist, klist, N=20000, T = 30, start = 100)
 
 def checkinfectbsmall(b,k,N,T,start=1):
     """
-    Compute the total percentage of the population infected (i+r) and 
+    Compute the total percentage of the population infected (i+r) and
     percentage of the population infected (i) for b < 1
     """
     recover = [0]
@@ -178,16 +178,16 @@ def plotphasediagramsmall(blist,klist,N,T,start):
     cts = np.zeros((len(blist), len(klist)))
     for j,b in enumerate(blist):
         for i,k in enumerate(klist):
-            cts[j,i] = checkinfectbsmall(b,k,N,T,start)[0]      
+            cts[j,i] = checkinfectbsmall(b,k,N,T,start)[0]
     plt.imshow(cts,extent=[np.min(klist),np.max(klist),np.min(blist),np.max(blist)], aspect="auto")
     plt.colorbar()
     plt.xlabel("k")
     plt.ylabel("b")
     plt.title("Percentage of Population Infected and Removed \n T = "+str(T)+", Discrete")
     plt.show()
-    
-    
-    
+
+
+
 def plotphasediagraminfectsmall(blist,klist,N,T,start):
     """
     Generate phase diagram of percentage of the population infected (i)
@@ -203,8 +203,8 @@ def plotphasediagraminfectsmall(blist,klist,N,T,start):
     plt.ylabel("b")
     plt.title("Percentage of Population Infected \n T = "+str(T)+", Discrete")
     plt.show()
-    
-    
+
+
 # Phase diagrams for b < 1
 blist = np.arange(1, 0, -0.1)
 klist = np.arange(0, 1, 0.1)
@@ -249,7 +249,7 @@ def convertvector(x):
 
 def runodesimulation(tspan, xstart, b, k, teval):
     """
-    Run ODE simulation with plot 
+    Run ODE simulation with plot
     """
     xstart = convertvector(xstart)
     sol = solve_ivp(odesimulation, tspan, xstart, args = (b, k), t_eval = teval)
@@ -261,11 +261,11 @@ def runodesimulation(tspan, xstart, b, k, teval):
     plt.ylabel("percentage")
     plt.legend()
     plt.show()
-    
-    
+
+
 def checktotalinfectpeople(x, b, k, T):
     """
-    Compute the total percentage of the population infected (i+r) and 
+    Compute the total percentage of the population infected (i+r) and
     percentage of the population infected (i) for b >= 1
     """
     x = convertvector(x)
@@ -287,7 +287,7 @@ def plotodephasediagram(x, blist, xlist, T):
     for j,b in enumerate(blist):
         for i,k in enumerate(klist):
             cts[j, i] = checktotalinfectpeople(x, b, k, T)[0]
-    plt.imshow(cts,extent=[np.min(klist), np.max(klist), np.min(blist), np.max(blist)], 
+    plt.imshow(cts,extent=[np.min(klist), np.max(klist), np.min(blist), np.max(blist)],
                interpolation="nearest", aspect='auto')
     plt.colorbar()
     plt.title("Percentage of Population Removed and Infected \n T = " + str(T) + ", Continuous")
@@ -305,7 +305,7 @@ def plotodeinfectphasediagram(x, blist, xlist, T):
     for j,b in enumerate(blist):
         for i,k in enumerate(klist):
             cts[j, i] = checktotalinfectpeople(x, b, k, T)[1]
-    plt.imshow(cts,extent=[np.min(klist), np.max(klist), np.min(blist), np.max(blist)], 
+    plt.imshow(cts,extent=[np.min(klist), np.max(klist), np.min(blist), np.max(blist)],
                interpolation="nearest", aspect='auto')
     plt.colorbar()
     plt.title("Percentage of Population Infected \n T = " + str(T) + ", Continuous")
@@ -313,13 +313,13 @@ def plotodeinfectphasediagram(x, blist, xlist, T):
     plt.ylabel("b")
     plt.show()
 
-    
-    
+
+
 # Generate plots
 tspan = (0, 30)
 xstart = np.array([19900, 100, 0])
 teval1 = np.linspace(0, 30, 300)
-# for b = 2 
+# for b = 2
 runodesimulation(tspan, xstart, 2, 0.2, teval1)
 runodesimulation(tspan, xstart, 2, 0.5, teval1)
 runodesimulation(tspan, xstart, 2, 0.8, teval1)
@@ -352,5 +352,3 @@ plotodephasediagram(xstart, blist, klist, 30)
 plotodeinfectphasediagram(xstart, blist,klist, 10)
 plotodeinfectphasediagram(xstart, blist,klist, 20)
 plotodeinfectphasediagram(xstart, blist,klist, 30)
-
-
