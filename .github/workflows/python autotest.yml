@@ -37,7 +37,5 @@ jobs:
     - name: Test with pytest
       run: |
         pytest test.py
-        
-    - name: Run scripts
-      run: |
-        python scripts.py
+
+
