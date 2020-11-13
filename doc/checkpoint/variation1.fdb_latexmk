@@ -1,11 +1,11 @@
 # Fdb version 3
-["biber variation1"] 1605258865 "variation1.bcf" "variation1.bbl" "variation1" 1605258983
+["biber variation1"] 1605258865 "variation1.bcf" "variation1.bbl" "variation1" 1605259917
   "Reference3.bib" 1605255187 682 1dbf57b83a773afe6033b55e94c799d2 ""
   "variation1.bcf" 1605258983 101848 89f4266b11afb00461f0954bc4704745 "pdflatex"
   (generated)
-  "variation1.bbl"
   "variation1.blg"
-["pdflatex"] 1605258982 "variation1.tex" "variation1.pdf" "variation1" 1605258983
+  "variation1.bbl"
+["pdflatex"] 1605258982 "variation1.tex" "variation1.pdf" "variation1" 1605259917
   "/usr/local/texlive/2020/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2020/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2020/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm" 1136768653 1324 c910af8c371558dc20f2d7822f66fe64 ""
@@ -130,11 +130,11 @@
   "variation1.bbl" 1605258866 4470 c215a525646f5541d74d28f9314c662e "biber variation1"
   "variation1.out" 1605258983 684 787f0dfb7c4df26a8544dfc991c22d04 "pdflatex"
   "variation1.run.xml" 1605258983 2347 9735a0ebc08edd4574b97efadb24b635 "pdflatex"
-  "variation1.tex" 1605258980 18256 2a9b5b4a5f465ef778c90299f9d66675 ""
+  "variation1.tex" 1605259916 18256 2a9b5b4a5f465ef778c90299f9d66675 ""
   (generated)
+  "variation1.bcf"
   "variation1.pdf"
-  "variation1.run.xml"
+  "variation1.log"
   "variation1.aux"
   "variation1.out"
-  "variation1.log"
-  "variation1.bcf"
+  "variation1.run.xml"
