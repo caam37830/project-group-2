@@ -1,0 +1,84 @@
+\documentclass{article}
+\usepackage{verbatim}
+\usepackage{amsmath}
+\usepackage[margin=1in,left=1.5in,includefoot]{geometry}
+\usepackage{graphicx}
+\usepackage{systeme}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage{placeins}
+\usepackage{fancyhdr}
+\definecolor{mygreen}{RGB}{28,172,0} % color values Red, Green, Blue
+\definecolor{mylilas}{RGB}{170,55,241}
+\pagestyle{fancy}
+\fancyhead{}
+\fancyfoot{}
+\fancyfoot[R]{ \thepage\ }
+\usepackage[utf8]{inputenc}
+
+% Default fixed font does not support bold face
+\DeclareFixedFont{\ttb}{T1}{txtt}{bx}{n}{12} % for bold
+\DeclareFixedFont{\ttm}{T1}{txtt}{m}{n}{12}  % for normal
+
+% Custom colors
+\usepackage{color}
+\definecolor{deepblue}{rgb}{0,0,0.5}
+\definecolor{deepred}{rgb}{0.6,0,0}
+\definecolor{deepgreen}{rgb}{0,0.5,0}
+
+
+\begin{document}
+
+
+\begin{titlepage}
+  \begin{center}
+  \huge{Yujin Liu, Helen Jin, Jiangmeng Li}
+  \end{center}
+
+
+\end{titlepage}
+
+\section{Part 4}
+\subsection{Modelling the usage of mask}
+In this section,we will try to discover how the usage of mask will influence the percentage of death people and percentage of hospitalized people with different infectious contact rate.
+To be specific, we will intoduce 7 factors. S(t),E(t),I(t),H(t),A(t),R(t) to representing susceptible, exposed, symptomatic infectious, hospitalized, asymptomatic infectious, recovered.We make the assumption that people change from \\
+S $\rightarrow$ E $\rightarrow$ A $\rightarrow$ I $\rightarrow$H \\ Each state , infectious people will be able to recover. Only the severe people will go to hosptial and then come to death.\\We will use D(t) to keep track of the death rate.We will also use ode simulation to find how usage of mask will impact people.There are two groups of ode equations. Firstly we will set up a group of odes to describe the case there is no mask usage. In the second group of odes, we will introduce more variables
+$S_{U}(t)$,$E_{U}(t)$,$I_{U}(t)$,$H_{U}(t)$,$A_{U}(t)$,$R_{U}(t)$,$S_{M}(t)$,$E_{M}(t)$,$I_{M}(t)$,$H_{M}(t)$,$A_{M}(t)$,$R_{M}(t)$ to divide the population in two part: The population wearing masks and the population not wearing masks
+Here are two groups of Odes:\\
+\begin{minipage}{0.45\textwidth}
+\begin{eqnarray}
+  \frac{dS}{dt} &=& -\beta{(t)}(I+\eta A)\frac{S}{N}\nonumber\\
+  \frac{dE}{dt} &=& \beta(t)(I+\eta A)\frac{S}{N}-\sigma{E}\nonumber\\
+  \frac{dI}{dt} &=& \alpha\sigma{E}-\phi{I}-\gamma_{I}I\nonumber\\
+  \frac{dA}{dt} &=& (1-\alpha)\sigma E-\gamma_{A}A\nonumber\\
+  \frac{dH}{dt} &=& \phi I - \sigma H - \gamma_{H}H\nonumber\\
+  \frac{dR}{dt} &=& \gamma_{I}{I} + \gamma_{A}{A}+\gamma_{H}{H}\nonumber\\
+  \frac{dD}{dt} &=& \sigma H\nonumber\\
+\end{eqnarray}
+\end{minipage}
+\begin{minipage}{0.35\textwidth}
+\small
+\begin{eqnarray}
+  \frac{dS_{U}}{dt} &=& -\beta(I_{U}+\eta A_{U})\frac{S_{U}}{N}-\beta((1-\epsilon_{0})I_{M}+(1-\epsilon_{0})\eta A_{M})\frac{S_{U}}{N}\nonumber\\
+  \frac{dE_{U}}{dt} &=& \beta(I_{U}+\eta{A}_{U})\frac{S_{U}}{N}+\beta((1-\epsilon_{0})I_{M}+(1-\epsilon_{0})\eta A_{M}))\frac{S_{U}}{N}-\sigma E_{U}\nonumber\\
+  \end{eqnarray}
+\end{minipage}
+
+We will run the simulation and observe what happens several days. \\Here,$\beta$ is the infectious contact rate, $\sigma$ is the transition exposed to infectious\\$\eta$ is the infectiousness factor for asymptomatic carriar, $\alpha$ is the fractious of infections that become symptomatic\\
+$\phi$ is rate of hospitalization,$\gamma_{A}$ is the recovery rate for asymptomatic
+\\$\gamma_{I}$ is the recovery rate,symptomatic,$\gamma_{H}$ is the recovery rate for hospitalized.\\$\sigma$ is the death rate in hospital.$\epsilon_{0}$ is the outward efficiency of the masks while $\epsilon_{i}$ is the inward efficiency of the masks.\\
+
+We will find the default estimated values all the parameters. We divide the whole population into two groups masked and not masked.
+We also make the assumption that inward efficiency and outward efficiency of masks are same($\epsilon_{0} = \epsilon_{1}$. We will draw a 2 dimensional phase diagram to show how the efficiency of mask(homemade mask or surgery mask) and how the percentage of people wearing the mask will influence the percentage of hospitalized people as well as the total death people among the population. The whole idea comes from the paper and we will try to replicate it.
+
+
+\subsection{Fitting the data with SIR model}
+
+
+
+
+\end{document}
