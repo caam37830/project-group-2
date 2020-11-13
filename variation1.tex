@@ -8,6 +8,7 @@
 \usepackage{color}
 \usepackage{xcolor}
 \usepackage{graphicx}
+\usepackage{biblatex}
 \usepackage{float}
 \usepackage{hyperref}
 \usepackage{placeins}
@@ -30,7 +31,7 @@
 \definecolor{deepred}{rgb}{0.6,0,0}
 \definecolor{deepgreen}{rgb}{0,0.5,0}
 
-
+\addbibresource{Reference3.bib}
 \begin{document}
 
 
@@ -61,11 +62,23 @@ Here are two groups of Odes:\\
 \end{eqnarray}
 \end{minipage}
 \begin{minipage}{0.35\textwidth}
-\small
+\tiny
 \begin{eqnarray}
   \frac{dS_{U}}{dt} &=& -\beta(I_{U}+\eta A_{U})\frac{S_{U}}{N}-\beta((1-\epsilon_{0})I_{M}+(1-\epsilon_{0})\eta A_{M})\frac{S_{U}}{N}\nonumber\\
   \frac{dE_{U}}{dt} &=& \beta(I_{U}+\eta{A}_{U})\frac{S_{U}}{N}+\beta((1-\epsilon_{0})I_{M}+(1-\epsilon_{0})\eta A_{M}))\frac{S_{U}}{N}-\sigma E_{U}\nonumber\\
-  \end{eqnarray}
+  \frac{dI_{U}}{dt} &=& \alpha\sigma E_{U}-\phi I_{U}-\gamma_{I}I_{U}\nonumber\\
+  \frac{dA_{U}}{dt} &=& (1-\alpha)\sigma E_{U}-\gamma_{A}A_{U}\nonumber\\
+  \frac{dH_{U}}{dt} &=& \phi I_{U}-\delta H_{U}-\gamma_{H}H_{U}\nonumber\\
+  \frac{dR_{U}}{dt} &=& \gamma_{I}I_{U}+\gamma_{A}A_{U}+\gamma_{H}H_{U}\nonumber\\
+  \frac{dD_{U}}{dt} &=& \delta H_{U}\nonumber\\
+  \frac{dS_{M}}{dt} &=& -\beta(1-\epsilon_{i})(I_{U}+\eta A_{U})\frac{S_{M}}{N}-\beta(1-\epsilon_{i})((1-\epsilon_{0})I_{M}+(1-\epsilon_{0})\eta A_{M})\frac{S_{M}}{N}\nonumber\\
+  \frac{dE_{M}}{dt} &=& \beta(1-\epsilon_{i})(I_{U}+\eta A_{U})\frac{S_{M}}{N}+\beta(1-\epsilon_{i})((1-\epsilon_{0})I_{M}+(1-\epsilon_{0})\eta A_{M})\frac{S_{M}}{N}-\sigma E_{M} \nonumber\\
+  \frac{dI_{M}}{dt} &=& \alpha\sigma E_{M} - \phi I_{M}-\gamma_{I} I_{M}\nonumber\\
+  \frac{dA_{M}}{dt} &=& (1-\alpha)\sigma E_{M}-\gamma_{A}A_{M}\nonumber\\
+  \frac{dH_{M}}{dt} &=& \phi I_{M}-\delta H_{M}-\gamma_{H}H_{M}\nonumber\\
+  \frac{dR_{M}}{dt} &=& \gamma_{I}I_{M} +\gamma_{A}A_{M}+\gamma_{H}H_{M}\nonumber\\
+  \frac{dD_{M}}{dt} &=& \delta H_{M}\nonumber\\
+\end{eqnarray}
 \end{minipage}
 
 We will run the simulation and observe what happens several days. \\Here,$\beta$ is the infectious contact rate, $\sigma$ is the transition exposed to infectious\\$\eta$ is the infectiousness factor for asymptomatic carriar, $\alpha$ is the fractious of infections that become symptomatic\\
@@ -77,7 +90,30 @@ We also make the assumption that inward efficiency and outward efficiency of mas
 
 
 \subsection{Fitting the data with SIR model}
+In this section we will try to fit the SIR model with the SARS  coronavirus. We try to use the SARS dataset in China from the link:\cite{SARSsource}
 
+Generally, We collect the dataset from the 2003-03-17 to 2003-06-01. It was mainly spreaded in China. To be specific,On April 22nd a hospital was established in Beijing and most of infected people are sent to the hospital.After that, the SARS coronavirus was controlled. In this model, we will try to simulate parameters and explore how building the hospital controlled the coronavirus. We use the ode simulation to simulate the most appropriate parameters b,k from data in 2003-03-17 to 2003-04-22.Then we add a variable $\gamma_{H}$ inside the dataset.And we establish the following ode:
+\begin{eqnarray}
+  \frac{dS}{dt} &=& -\beta I*\frac{S}{N}*(1-\gamma_{H})\\
+  \frac{dI}{dt} &=& \beta *\frac{S}{N}*I*(1-\gamma_{H})- k*I\\
+  \frac{dR}{dt} &=& k*I\\
+  \frac{dD}{dt} &=& \gamma_{H}*I*\delta\\
+\end{eqnarray}
+
+Using the first 30 days from 2003-03-17 to 2003-04-22, we may find appropriate $\beta$ and k as well as the value $\delta$,representing the death rate.To do so, we will experiment with lots of $\beta$, k,$\delta$ starting from common default values and try to find the most appropriate values such that MSE between the simulated data and real data are small(S-t,R-t,D-t).  Then, we will find appropriate $\gamma_{H}$ so that the trend of data will be corresponded with the later data set(from  2003-04-22 to 2003-06-01). As what we know, China almost sent all the illness people to the hospital located in Beijing. And we try to see whether $\gamma_{H}$ is close to 1.
+Finally, we will build a 1-d plot showing the relationship between the length of SARS coronavirus(end point is no infected people) with the percentage of people that we send to hospital.($\gamma_{H}$)
+
+
+\subsection{Visualization of Covid-19}
+In this part we will do the visualization to reflect the increasing trend and distritution in United States.
+Firstly, we will do the line plot to reflect the trend of covid-19 in several states. We use the library from John hopkins university to attain the total covid-19 death people as well as the confirmed cases every 7 days in several states. The python packages we use are the mplcursor and matplotlib. We try to move the cursor along the lines in different days and relevant information(death and confirmed cases each day) will be presented.
+
+Apart from that, we will implement several map that recording the Confirmed cases as well as the recovered cases in the United States in different days. We choose several days from 6 months(April to November) and make several plots. We can attain the longitude and latitude from the same library. Then we can build our map according to these information. We will use the package matplotlib, plotpl or bokeh to make the graph clear. It will reflect the distribution of covid-19 through the United States.
+
+\section{Bibliography}
+The paper that we need to replicate for mask usage \cite{Steff2020mask},The SARS dataset\cite{SARSsource},The covid-19 dataset\cite{Johnhopkins}
+
+\printbibliography
 
 
 
