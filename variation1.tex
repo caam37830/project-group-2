@@ -227,9 +227,23 @@ We will find the default estimated values for all parameters with population mas
 Here, an assumption is made that the inward efficiency and outward efficiency of masks are the same($\epsilon_{0} = \epsilon_{1}$. We will draw a 2 dimensional phase diagram to show how the efficiency of mask(homemade mask or surgery mask) and the percentage of masked people will influence the hospitalization as well as the total deaths among the population. 
 
 
+
+
+
 \subsection{Fitting the data with SIR model}
 
+
+
+
+
 \subsection{Data visualization of Covid-19}
+
+In this part we will do the visualization to reflect the increasing trend and distribution in terms of Covid-19 in United States. The data set is from the data repository for the 2019 Novel Coronavirus Visual Dashboard operated by the Johns Hopkins University Center for Systems Science and Engineering (JHU CSSE) and we will mainly use the daily reports of US from April to present (https://github.com/CSSEGISandData/COVID-19).
+Firstly, we can make some time series plots to reflect the trend of several variables related to Covid-19 for all states, such as confirmed cases, deaths, recovered, test rate, etc. We consider to attain the total deaths as well as the confirmed cases every 7 days in order to observe potential peaks and try to analyze the reasons. Furthermore, we can use the python packages mplcursor and matplotlib to move the cursor along the lines in different days and relevant information (deaths and confirmed cases each day) will be presented. 
+
+Apart from that, we will implement several maps to better visualize the density of variables in each state. Specifically, we may collect the monthly data of confirmed cases, deaths, and recovered cases, and then produce choropleths using the geoplotlib package. There are longitude and latitude information from the same data set so that we can build the maps. We may use the packages matplotlib, plotpl or bokeh to make the graph clear. Therefore, this visualization will reflect the distribution of Covid-19 through the United States. 
+
+
 
 
 
