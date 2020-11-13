@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.7.5)  13 NOV 2020 08:22
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.7.5)  13 NOV 2020 09:50
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**variation1.tex
-(./variation1.tex
+**midtermreport.tex
+(./midtermreport.tex
 LaTeX2e <2020-02-02> patch level 5
 L3 programming layer <2020-06-18>
 (/usr/local/texlive/2020/texmf-dist/tex/latex/base/article.cls
@@ -583,7 +583,7 @@ File: l3backend-pdfmode.def 2020-06-29 L3 backend support: PDF mode
 \l__kernel_color_stack_int=\count405
 \l__pdf_internal_box=\box51
 )
-(./variation1.aux
+(./midtermreport.aux
 
 LaTeX Warning: Label `fig:figure3' multiply defined.
 
@@ -615,7 +615,7 @@ LaTeX Warning: Label `fig:figure3' multiply defined.
 LaTeX Warning: Label `fig:figure3' multiply defined.
 
 )
-\openout1 = `variation1.aux'.
+\openout1 = `midtermreport.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 36.
 LaTeX Font Info:    ... okay on input line 36.
@@ -708,12 +708,12 @@ File: english.lbx 2019/12/01 v3.14 biblatex localization (PK/MW)
 Package biblatex Info: Input encoding 'utf8' detected.
 Package biblatex Info: Automatic encoding selection.
 (biblatex)             Assuming data encoding 'utf8'.
-\openout3 = `variation1.bcf'.
+\openout3 = `midtermreport.bcf'.
 
 Package biblatex Info: Trying to load bibliographic data...
-Package biblatex Info: ... file 'variation1.bbl' found.
+Package biblatex Info: ... file 'midtermreport.bbl' found.
 
-(./variation1.bbl)
+(./midtermreport.bbl)
 Package biblatex Info: Reference section=0 on input line 36.
 Package biblatex Info: Reference segment=0 on input line 36.
 \AtBeginShipoutBox=\box53
@@ -734,9 +734,9 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 36.
 LaTeX Info: Redefining \pageref on input line 36.
 LaTeX Info: Redefining \nameref on input line 36.
- (./variation1.out) (./variation1.out)
+ (./midtermreport.out) (./midtermreport.out)
 \@outlinefile=\write4
-\openout4 = `variation1.out'.
+\openout4 = `midtermreport.out'.
 
  [1
 
@@ -964,7 +964,7 @@ Package pdftex.def Info: Figure2_ode_infT30_bsmall.png  used on input line 315.
 
 (pdftex.def)             Requested size: 130.08733pt x 103.2951pt.
 
-Overfull \hbox (138.03638pt too wide) in alignment at lines 354--369
+Overfull \hbox (138.03638pt too wide) in alignment at lines 353--368
  [][][] []
  []
 
@@ -973,40 +973,40 @@ alT30.png> <./Figure2_ode_totalT10_bsmall.png> <./Figure2_ode_totalT20_bsmall.p
 ng> <./Figure2_ode_totalT30_bsmall.png> <./Figure2_ode_infectT10.png> <./Figure
 2_ode_infectT20.png> <./Figure2_ode_infectT30.png>] [6 <./Figure2_ode_infT10_bs
 mall.png> <./Figure2_ode_infT20_bsmall.png> <./Figure2_ode_infT30_bsmall.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 372--375
+Underfull \hbox (badness 10000) in paragraph at lines 371--374
 
  []
 
 [7]
 
 Package biblatex Warning: No driver for entry type 'author'.
-(biblatex)                Using fallback driver on input line 414.
+(biblatex)                Using fallback driver on input line 413.
 
 [8]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 419.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 418.
  [9]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 419.
- (./variation1.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 419.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 419.
-Package rerunfilecheck Info: File `variation1.out' has not changed.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 418.
+ (./midtermreport.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 418.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 418.
+Package rerunfilecheck Info: File `midtermreport.out' has not changed.
 (rerunfilecheck)             Checksum: 4E8C20E531E5C15ED6561EEAA0DAC088;685.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package logreq Info: Writing requests to 'variation1.run.xml'.
-\openout1 = `variation1.run.xml'.
+Package logreq Info: Writing requests to 'midtermreport.run.xml'.
+\openout1 = `midtermreport.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
  15893 strings out of 480471
- 270548 string characters out of 5899411
- 944792 words of memory out of 5000000
+ 270608 string characters out of 5899411
+ 944801 words of memory out of 5000000
  31650 multiletter control sequences out of 15000+600000
  536379 words of font info for 38 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 37i,13n,45p,1272b,1293s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 37i,13n,45p,1275b,1293s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
 ></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb
 ></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb>
@@ -1021,10 +1021,10 @@ ive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texli
 ve/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive
 /2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/
 2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on variation1.pdf (10 pages, 594876 bytes).
+Output written on midtermreport.pdf (10 pages, 594714 bytes).
 PDF statistics:
- 258 PDF objects out of 1000 (max. 8388607)
- 158 compressed objects within 2 object streams
+ 259 PDF objects out of 1000 (max. 8388607)
+ 159 compressed objects within 2 object streams
  39 named destinations out of 1000 (max. 500000)
  261 words of extra memory for PDF output out of 10000 (max. 10000000)
 

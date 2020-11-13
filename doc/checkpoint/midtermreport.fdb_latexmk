@@ -1,11 +1,11 @@
 # Fdb version 3
-["biber variation1"] 1605274583 "variation1.bcf" "variation1.bbl" "variation1" 1605277401
+["biber midtermreport"] 1605282642 "midtermreport.bcf" "midtermreport.bbl" "midtermreport" 1605282649
   "Reference3.bib" 1605255187 682 1dbf57b83a773afe6033b55e94c799d2 ""
-  "variation1.bcf" 1605277356 101846 dfd75578dbe1838c8230c59cc3fd9624 "pdflatex"
+  "midtermreport.bcf" 1605282649 101901 657960d945bd27f8e87fc535449fa18b "pdflatex"
   (generated)
-  "variation1.bbl"
-  "variation1.blg"
-["pdflatex"] 1605277354 "variation1.tex" "variation1.pdf" "variation1" 1605277401
+  "midtermreport.bbl"
+  "midtermreport.blg"
+["pdflatex"] 1605282648 "midtermreport.tex" "midtermreport.pdf" "midtermreport" 1605282649
   "/usr/local/texlive/2020/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2020/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2020/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm" 1136768653 1324 c910af8c371558dc20f2d7822f66fe64 ""
@@ -145,15 +145,15 @@
   "Figure2_ode_totalT20_bsmall.png" 1605274464 9936 2914b6b34a83fceb4d9607c63adf079c ""
   "Figure2_ode_totalT30.png" 1605258187 10193 30f7d58e0fe26f480ab88ee0bcd6fa6a ""
   "Figure2_ode_totalT30_bsmall.png" 1605274464 9890 c1733edaef8abe77ea4e240678052cda ""
-  "variation1.aux" 1605277356 7758 356b7b4f0a52f5b409f1b17c78edff13 "pdflatex"
-  "variation1.bbl" 1605274585 4470 c215a525646f5541d74d28f9314c662e "biber variation1"
-  "variation1.out" 1605277356 685 4e8c20e531e5c15ed6561eeaa0dac088 "pdflatex"
-  "variation1.run.xml" 1605277356 2347 9735a0ebc08edd4574b97efadb24b635 "pdflatex"
-  "variation1.tex" 1605277401 23392 96d2b9ca283edf034e2ca5040a397e26 ""
+  "midtermreport.aux" 1605282649 7822 ade23e3ce0797f9c6bb4d9cac4e800e3 "pdflatex"
+  "midtermreport.bbl" 1605282644 4470 c215a525646f5541d74d28f9314c662e "biber midtermreport"
+  "midtermreport.out" 1605282649 685 4e8c20e531e5c15ed6561eeaa0dac088 "pdflatex"
+  "midtermreport.run.xml" 1605282649 2368 f74f10ee92f20c1fd4e94788b1494d4d "pdflatex"
+  "midtermreport.tex" 1605282640 23220 e62a9006b0784f15e09fc0362e5c940c ""
   (generated)
-  "variation1.out"
-  "variation1.bcf"
-  "variation1.log"
-  "variation1.aux"
-  "variation1.run.xml"
-  "variation1.pdf"
+  "midtermreport.aux"
+  "midtermreport.bcf"
+  "midtermreport.out"
+  "midtermreport.log"
+  "midtermreport.run.xml"
+  "midtermreport.pdf"

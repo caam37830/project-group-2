@@ -65,7 +65,7 @@
 
 \section{Introduction to the SIR Model and Notation}
 
-The susceptible-infected-removed (SIR) model is built based on the first-order derivative to model the spread of infectious disease, where the time dependent variables $S$, $I$, $R$ each represent the following populations:
+TThe susceptible-infected-removed (SIR) model is one of the compartmental models that simplify the mathematical modeling to the spread of infectious disease, where the time dependent variables $S$, $I$, $R$ each represent the following populations:
 
 $S$(susceptible): number of individuals who are not infected but could become infected
 
@@ -163,7 +163,7 @@ The simulations are done with T values 10, 20 and 30 days for both discrete and 
 
 In figure 3, three phase diagrams illustrate the percentage of population infected and removed, i.e., the total percentage of population infected. It depends on both b, the number of interactions per day per individual that could spread the disease, and k, the recovery rate. The diagrams look very similar for different lengths of simulation (10, 20, and 30 days). It is clear that as k increases and b decreases, the total percentage of population infected decreases. If each individual only has less than two interactions per day that could spread the disease and the recovery rate is higher than 0.6, then almost nobody will be infected over time. The yellow area represents that everyone is eventually infected. When k is less or equal to 0.2, then everyone is eventually infected. Also, when b is larger than 6, everyone is eventually infected. Furthermore, when b is relatively small (less than 7) but k is relatively large (larger than 0.3), everyone is eventually infected. More precisely, the cut edge between the area where all individuals are infected and the remaining area is approximately linear, so that we may estimate the edge by $b = 10k - 3$. Therefore, when $b - 10k + 3 > 0$, everyone is eventually infected.
 
-We set b is larger than 1 in the above simulations. However, b can be less than 1. For instance, b = 0.5 is equivalent to say, each individual has 50$\%$ chance to be infected by one interaction with infectious people per day.
+We set b is larger than 1 in the above simulations. However, b can be less than 1. For instance, b = 0.5, we can interpret it as each infected person will contact 1 person in a day and the probability for the person to be infected is 0.5 if the person is susceptible.
 
 
 \begin{figure}[htp]
@@ -333,8 +333,7 @@ Hence, the ODE continuous simulation and the discrete simulation totally agree i
 
 \section{Variations and Improvements}
 \subsection{Modelling the usage of mask}
-In this section, we study the effectiveness of mask in the spreading of the novel COVID-19 disease and develop a variation of the susceptible-infected-removed (SIR) model that provides a theoretical framework to investigate its spread within a community. More specifically, we will investigate how the use of mask will influence the percentage of deaths and hospitalizations with respect to different infectious contact rate.The model is based on the paper "To mask or not to mask: Modeling the potential for face mask use by the general public to curtail the COVID-19 pandemic" by Steffen E. Eikenberry et al. Although it is now recommended and a common practice to wear mask to limit the spread of COVID 19, it is very controversial at the beginning of the pandemic that whether it is neccesary and efficient to wear mask. So, we believe it is meaningful to understand quantitatively more about this topic.
-In this model, we will introduce seven varaibles. S(t),E(t),I(t),H(t),A(t),R(t) each denote susceptible, exposed, symptomatic infectious, hospitalized, asymptomatic infectious, and recovered classes, with an assumption that people progress from \\
+In this section, we study the effectiveness of mask in the spreading of the novel COVID-19 disease and develop a variation of the susceptible-infected-removed (SIR) model that provides a theoretical framework to investigate its spread within a community. More specifically, we will investigate how the usage of mask will influence the percentage of deaths and hospitalizations with respect to different infectious contact rate.The model is based on the paper "To mask or not to mask: Modeling the potential for face mask use by the general public to curtail the COVID-19 pandemic" by Steffen E. Eikenberry et al. In this model, we will introduce seven varaibles. S(t),E(t),I(t),H(t),A(t),R(t) each denote susceptible, exposed, symptomatic infectious, hospitalized, asymptomatic infectious, and recovered classes, with an assumption that people progress from \\
 S $\rightarrow$ E $\rightarrow$ A $\rightarrow$ I $\rightarrow$H \\ At each state, infectious people will be able to recover, and only people in severe condition will go to hosptial and may die.\\D(t) is also included to track cumulative deaths. Two sets of ODE euqations will be used during simulation to find how use of mask will impact the spread of disease. We first consider a baseline model for the case where no masks are used. In the second set of odes, we will introduce more variables
 $S_{U}(t)$,$E_{U}(t)$,$I_{U}(t)$,$H_{U}(t)$,$A_{U}(t)$,$R_{U}(t)$,$S_{M}(t)$,$E_{M}(t)$,$I_{M}(t)$,$H_{M}(t)$,$A_{M}(t)$,$R_{M}(t)$ to divide the population in two part: The population wearing masks and the one not wearing masks
 Here are two sets of Odes:\\
@@ -373,7 +372,7 @@ We will run the simulation and observe what will happen in several days. \\Here,
 $\phi$ is rate of hospitalization,$\gamma_{A}$ is the recovery rate for asymptomatic
 \\$\gamma_{I}$ is the recovery rate, symptomatic,$\gamma_{H}$ is the recovery rate for hospitalized.\\$\sigma$ is the death rate in hospital.$\epsilon_{0}$ is the outward efficiency of the masks while $\epsilon_{i}$ is the inward efficiency of the masks.\\
 
-We will find the default estimated values for all parameters with population masked and not masked.
+We will find the default estimated values for all parameters with population masked and not masked from the source \cite{Steff2020mask}.
 Here, an assumption is made that the inward efficiency and outward efficiency of masks are the same($\epsilon_{0} = \epsilon_{1}$. We will draw a 2 dimensional phase diagram to show how the efficiency of mask(homemade mask or surgery mask) and the percentage of masked people will influence the hospitalization as well as the total deaths among the population.
 
 
@@ -392,8 +391,8 @@ Generally, We collect the dataset from the 2003-03-17 to 2003-06-01. It was main
   \frac{dD}{dt} &=& \gamma_{H}*I*\delta\\
 \end{eqnarray}
 
-Using the first 30 days from 2003-03-17 to 2003-04-22, we may find appropriate $\beta$ and k as well as the value $\delta$,representing the death rate.To do so, we will experiment with lots of $\beta$, k,$\delta$ starting from common default values and try to find the most appropriate values such that MSE between the simulated data and real data are small(S-t,R-t,D-t).  Then, we will find appropriate $\gamma_{H}$ so that the trend of data will be corresponded with the later data set(from  2003-04-22 to 2003-06-01). As what we know, China almost sent all the illness people to the hospital located in Beijing. And we try to see whether $\gamma_{H}$ is close to 1.
-Finally, we will build a 1-d plot showing the relationship between the length of SARS coronavirus(end point is no infected people) with the percentage of people that we send to hospital.($\gamma_{H}$)
+Using the first 30 days from 2003-03-17 to 2003-04-22, we may find appropriate $\beta$ and k as well as the value $\delta$,representing the death rate.To do so, we will experiment with lots of $\beta$, k,$\delta$ starting from common default values and try to find the most appropriate values such that MSE(Mean Squared Error) between the simulated data and real data are small(S-t,R-t,D-t).  Then, we will find appropriate $\gamma_{H}$ so that the trend of data will be corresponded with the later data set(from  2003-04-22 to 2003-06-01). As what we know, China almost sent all the illness people to the hospital located in Beijing. And we try to see whether $\gamma_{H}$ is close to 1.
+Finally, we will build a line plot showing the relationship between the length of SARS coronavirus(end point is no infected people) with the percentage of people that we send to hospital.($\gamma_{H}$)
 
 
 
