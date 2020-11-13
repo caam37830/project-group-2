@@ -1,5 +1,5 @@
 import unittest
-from sir.agent import *
+import sir
 import numpy as np
 class Testcountinfect(unittest.TestCase):
       """
@@ -10,7 +10,7 @@ class Testcountinfect(unittest.TestCase):
             susceptible  = []
             infect = []
             recover = []
-            pop = [Person() for i in range(N)]
+            pop = [sir.agent.Person() for i in range(N)]
             """
             for all the people randomly assigned whether they are infected
             """
@@ -26,7 +26,7 @@ class Testcountinfect(unittest.TestCase):
                         recover.append(pop[i])
                         pop[i].get_infected()
                         pop[i].get_recovered()
-            self.assertTrue(count_suspectial(pop)==len(susceptible))
+            self.assertTrue(sir.agent.count_suspectial(pop)==len(susceptible))
 
       def test_infectremove(self):
             """
@@ -36,7 +36,7 @@ class Testcountinfect(unittest.TestCase):
             susceptible  = []
             infect = []
             recover = []
-            pop = [Person() for i in range(N)]
+            pop = [sir.agent.Person() for i in range(N)]
 
             for i in range(N):
                   k = np.random.randint(3,size = 1)
@@ -52,5 +52,5 @@ class Testcountinfect(unittest.TestCase):
                         pop[i].get_recovered()
             #We test the amount of infected people
 
-            self.assertTrue(count_infect(pop)==len(infect))
-            self.assertTrue(count_recover(pop)==len(recover))
+            self.assertTrue(sir.agent.count_infect(pop)==len(infect))
+            self.assertTrue(sir.agent.count_recover(pop)==len(recover))
