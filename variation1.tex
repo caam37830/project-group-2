@@ -45,7 +45,7 @@
 \section{Part 4}
 \subsection{Modelling the usage of mask}
 In this section,we will try to discover how the usage of mask will influence the percentage of death people and percentage of hospitalized people with different infectious contact rate.
-To be specific, we will intoduce 7 factors. S(t),E(t),I(t),H(t),A(t),R(t) to representing susceptible, exposed, symptomatic infectious, hospitalized, asymptomatic infectious, recovered.We make the assumption that people change from \\
+To be specific, we will intoduce 7 factors. S(t),E(t),I(t),H(t),A(t),R(t) to represent susceptible, exposed, symptomatic infectious, hospitalized, asymptomatic infectious, and recovered people.We make the assumption that people change from \\
 S $\rightarrow$ E $\rightarrow$ A $\rightarrow$ I $\rightarrow$H \\ Each state , infectious people will be able to recover. Only the severe people will go to hosptial and then come to death.\\We will use D(t) to keep track of the death rate.We will also use ode simulation to find how usage of mask will impact people.There are two groups of ode equations. Firstly we will set up a group of odes to describe the case there is no mask usage. In the second group of odes, we will introduce more variables
 $S_{U}(t)$,$E_{U}(t)$,$I_{U}(t)$,$H_{U}(t)$,$A_{U}(t)$,$R_{U}(t)$,$S_{M}(t)$,$E_{M}(t)$,$I_{M}(t)$,$H_{M}(t)$,$A_{M}(t)$,$R_{M}(t)$ to divide the population in two part: The population wearing masks and the population not wearing masks
 Here are two groups of Odes:\\
