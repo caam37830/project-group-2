@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 
 def run_Simulation2(b, k, N=100, T=10, start = 1):
     """
-    run the simulation for the population
+    Run the discrete simulation and plot s, i, r 
     """
     recover = [0]
     infect  = [start]
@@ -35,15 +35,21 @@ def run_Simulation2(b, k, N=100, T=10, start = 1):
         recover.append(count_recover(pop))
         infect.append(count_infect(pop))
         suspect.append(count_suspectial(pop))
-
-    plt.plot(range(T+1), recover, label = "recoverpeople")
-    plt.plot(range(T+1), suspect, label = "suspectpeople")
-    plt.plot(range(T+1), infect, label = "infectpeople")
+    newrecover = [i/N for i in recover]
+    newsuspect = [s/N for s in suspect]
+    newinfect = [i/N for i in infect]
+    plt.plot(range(T+1), recover, label = "r: percentage of removed")
+    plt.plot(range(T+1), suspect, label = "s: percentage of susceptible")
+    plt.plot(range(T+1), infect, label = "i: percentage of infected")
     plt.legend()
     plt.show()
 
-
+    
 def checktotalinfect(b, k, N, T, start = 1):
+    """
+    Compute the total percentage of the population infected (i+r) and 
+    percentage of the population infected (i)
+    """
     recover = [0]
     infect  = [start]
     suspect = [N-start]
@@ -54,7 +60,7 @@ def checktotalinfect(b, k, N, T, start = 1):
     for i in range(T):
         for j in range(N):
              if pop[j].is_infected():
-                contacts = np.random.randint(N, size=b)
+                contacts = np.random.randint(N, size = b)
                 for l in contacts:
                     if pop[l].is_willinfected():
                         pop[l].get_infected()
@@ -67,28 +73,33 @@ def checktotalinfect(b, k, N, T, start = 1):
     return [count_infect(pop)/N, (count_infect(pop)+count_recover(pop))/N]
 
 
+
 def plotphasediagram(blist, klist, N, T, start):
+    """
+    Generate phase diagram of total percentage of the population infected (i+r)
+    """
     cts = np.zeros((len(blist), len(klist)))
     for j,b in enumerate(blist):
         for i,k in enumerate(klist):
             cts[j,i] = checktotalinfect(b, k, N, T, start)[1]
 
-   # plt.figure(figsize=(8,10))
     plt.imshow(cts,extent=[np.min(klist), np.max(klist), np.min(blist), np.max(blist)], interpolation="nearest", aspect="auto")
     plt.colorbar()
-    plt.title("Percentage of Population Infected and Removed \n T = "+str(T)+", Discrete")
+    plt.title("Percentage of Population Infected and Removed \n T = " + str(T) + ", Discrete")
     plt.xlabel("k")
     plt.ylabel("b")
     plt.show()
     
 
 def plotphasediagraminfect(blist, klist, N, T, start):
+    """
+    Generate phase diagram of percentage of the population infected (i)
+    """
     cts = np.zeros((len(blist), len(klist)))
     for j,b in enumerate(blist):
         for i,k in enumerate(klist):
             cts[j,i] = checktotalinfect(b, k, N, T, start)[0]
 
-   # plt.figure(figsize=(8,10))
     plt.imshow(cts,extent=[np.min(klist), np.max(klist), np.min(blist), np.max(blist)], interpolation="nearest", aspect="auto")
     plt.title("Percentage of Population Infected \n T= " + str(T) + ", Discrete")
     plt.colorbar()
@@ -97,33 +108,38 @@ def plotphasediagraminfect(blist, klist, N, T, start):
     plt.show()
     
 
-run_Simulation2(2, 0.3, N=10000, T=50, start=100)
-run_Simulation2(5, 0.5, N=10000, T=100, start=100)
+# Produce some plots of how s, i, and r change over the length of the simulation 
+# Fix b = 2
+run_Simulation2(b = 2, k = 0.3, N=20000, T=35, start=100) 
+run_Simulation2(b = 2, k = 0.5, N=20000, T=35, start=100)
+run_Simulation2(b = 2, k = 0.8, N=20000, T=35, start=100)
 
-#Now firstly, we try to discover the total percentage of
-#infected at T = 10,50, 100, 200 days
+# Fix b = 5
+run_Simulation2(b = 5, k = 0.3, N=20000, T=35, start=100)
+run_Simulation2(b = 5, k = 0.5, N=20000, T=35, start=100)
+run_Simulation2(b = 5, k = 0.8, N=20000, T=35, start=100)
+
+
+
+# Generate phase diagrams at T = 10, 20, 30 days
+# For total percentage of the population infected
 blist = np.arange(10, 0, -1)
-klist = np.arange(0, 1, 0.1)
+klist = np.arange(0, 1.1, 0.1)
 plotphasediagram(blist, klist, N = 20000, T = 10, start = 100)
 plotphasediagram(blist, klist, N = 20000, T = 20, start = 100)
 plotphasediagram(blist, klist, N = 20000, T = 30, start = 100)
-#Coclusion: The percentage of infected at time >10 days mainly depend on the b.If b > 5(5 Susceptible people
-#infected once contact a suspectible person, then all of them will be infected), then all the person will be infected very early no matter what i is
-#if b<=5, then if the recoverrate is very high there will be small amount of people being infected
 
-#Secondly, we try to discover the part of regimes that i will quickly go to 0
-#We also observe the diagram we have already observed,
 
+# For percentage of the population infected
 plotphasediagraminfect(blist, klist, N=20000, T = 10, start = 100)
 plotphasediagraminfect(blist, klist, N=20000, T = 20, start = 100)
 plotphasediagraminfect(blist, klist, N=20000, T = 30, start = 100)
-#Conclusion:
-#The percentage of infected people will quickly goes to 0, if the recovered rate R is large.A small amount of b will
-#accelerate the process of decreasing percentage of infected people but the main factor is the recover rate R.
-#
 
-#Finally we will try to discover in which case no people recovered
-#We can check that through the phasediagram. If the b is very large(b>5), even if the recovered rate is high, All the people will be infected
+
+
+
+
+
 
 
 
@@ -150,7 +166,7 @@ def convertvector(x):
 
 def runodesimulation(tspan, xstart, b, k, teval):
     xstart = convertvector(xstart)
-    sol = solve_ivp(odesimulation, tspan, xstart, args = (b,k), t_eval = teval)
+    sol = solve_ivp(odesimulation, tspan, xstart, args = (b, k), t_eval = teval)
     plt.plot(sol.t, sol.y[0], label ="suspectial people")
     plt.plot(sol.t, sol.y[1], label ="infected people")
     plt.plot(sol.t, sol.y[2], label ="recovered people")
@@ -166,7 +182,7 @@ def checktotalinfectpeople(x, b, k, T):
     tspan = (0, T)
     xstart = x
     teval = np.linspace(0, T, 200);
-    sol = solve_ivp(odesimulation, tspan, xstart, args=(b,k), t_eval = teval)
+    sol = solve_ivp(odesimulation, tspan, xstart, args = (b, k), t_eval = teval)
     totalinfect = sol.y[2][-1] + sol.y[1][-1]
     infect = sol.y[1][-1]
     return np.array([totalinfect, infect])
