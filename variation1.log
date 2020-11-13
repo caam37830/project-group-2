@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.7.5)  13 NOV 2020 02:37
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.7.5)  13 NOV 2020 02:44
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -583,7 +583,23 @@ File: l3backend-pdfmode.def 2020-06-29 L3 backend support: PDF mode
 \l__kernel_color_stack_int=\count405
 \l__pdf_internal_box=\box51
 )
-(./variation1.aux)
+(./variation1.aux
+
+LaTeX Warning: Label `fig:figure3' multiply defined.
+
+
+LaTeX Warning: Label `fig:figure3' multiply defined.
+
+
+LaTeX Warning: Label `fig:figure3' multiply defined.
+
+
+LaTeX Warning: Label `fig:figure3' multiply defined.
+
+
+LaTeX Warning: Label `fig:figure3' multiply defined.
+
+)
 \openout1 = `variation1.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 35.
@@ -710,45 +726,358 @@ LaTeX Info: Redefining \nameref on input line 35.
  [1
 
 {/usr/local/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Overfull \hbox (138.03638pt too wide) in alignment at lines 66--81
- [][][] []
- []
+
+LaTeX Warning: File `Figure1_discrete_sir_b2_k1.png' not found on input line 80
+.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 84--87
+./variation1.tex:80: Package pdftex.def Error: File `Figure1_discrete_sir_b2_k1
+.png' not found: using draft setting.
 
- []
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.80 ...textwidth]{Figure1_discrete_sir_b2_k1.png}
+                                                  \hfill
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: File `Figure1_discrete_sir_b2_k2.png' not found on input line 81
+.
+
+
+./variation1.tex:81: Package pdftex.def Error: File `Figure1_discrete_sir_b2_k2
+.png' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.81 ...textwidth]{Figure1_discrete_sir_b2_k2.png}
+                                                  \hfill
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: File `Figure1_discrete_sir_b2_k3.png' not found on input line 82
+.
+
+
+./variation1.tex:82: Package pdftex.def Error: File `Figure1_discrete_sir_b2_k3
+.png' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.82 ...textwidth]{Figure1_discrete_sir_b2_k3.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.90 
-      [1] [2]
+l.92 
+      [1]
+
+LaTeX Warning: File `Figure1_discrete_sir_b5_k1.png' not found on input line 97
+.
+
+
+./variation1.tex:97: Package pdftex.def Error: File `Figure1_discrete_sir_b5_k1
+.png' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.97 ...textwidth]{Figure1_discrete_sir_b5_k1.png}
+                                                  \hfill
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: File `Figure1_discrete_sir_b5_k2.png' not found on input line 98
+.
+
+
+./variation1.tex:98: Package pdftex.def Error: File `Figure1_discrete_sir_b5_k2
+.png' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.98 ...textwidth]{Figure1_discrete_sir_b5_k2.png}
+                                                  \hfill
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: File `Figure1_discrete_sir_b5_k3.png' not found on input line 99
+.
+
+
+./variation1.tex:99: Package pdftex.def Error: File `Figure1_discrete_sir_b5_k3
+.png' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.99 ...textwidth]{Figure1_discrete_sir_b5_k3.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: File `Figure1_discrete_diagT10total.png' not found on input line
+ 118.
+
+
+./variation1.tex:118: Package pdftex.def Error: File `Figure1_discrete_diagT10t
+otal.png' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.118 ...width]{Figure1_discrete_diagT10total.png}
+                                                  \hfill
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: File `Figure1_discrete_diagT20total.png' not found on input line
+ 119.
+
+
+./variation1.tex:119: Package pdftex.def Error: File `Figure1_discrete_diagT20t
+otal.png' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.119 ...width]{Figure1_discrete_diagT20total.png}
+                                                  \hfill
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: File `Figure1_discrete_diagT30total.png' not found on input line
+ 120.
+
+
+./variation1.tex:120: Package pdftex.def Error: File `Figure1_discrete_diagT30t
+otal.png' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.120 ...width]{Figure1_discrete_diagT30total.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+[2]
+
+LaTeX Warning: File `Figure1_discrete_bsmall_T10.png' not found on input line 1
+37.
+
+
+./variation1.tex:137: Package pdftex.def Error: File `Figure1_discrete_bsmall_T
+10.png' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.137 ...xtwidth]{Figure1_discrete_bsmall_T10.png}
+                                                  \hfill
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: File `Figure1_discrete_bsmall_T20.png' not found on input line 1
+38.
+
+
+./variation1.tex:138: Package pdftex.def Error: File `Figure1_discrete_bsmall_T
+20.png' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.138 ...xtwidth]{Figure1_discrete_bsmall_T20.png}
+                                                  \hfill
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: File `Figure1_discrete_bsmall_T30.png' not found on input line 1
+39.
+
+
+./variation1.tex:139: Package pdftex.def Error: File `Figure1_discrete_bsmall_T
+30.png' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.139 ...xtwidth]{Figure1_discrete_bsmall_T30.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: File `Figure1_discrete_diagT10infect.png' not found on input lin
+e 154.
+
+
+./variation1.tex:154: Package pdftex.def Error: File `Figure1_discrete_diagT10i
+nfect.png' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.154 ...idth]{Figure1_discrete_diagT10infect.png}
+                                                  \hfill
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: File `Figure1_discrete_diagT20infect.png' not found on input lin
+e 155.
+
+
+./variation1.tex:155: Package pdftex.def Error: File `Figure1_discrete_diagT20i
+nfect.png' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.155 ...idth]{Figure1_discrete_diagT20infect.png}
+                                                  \hfill
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: File `Figure1_discrete_diagT30infect.png' not found on input lin
+e 156.
+
+
+./variation1.tex:156: Package pdftex.def Error: File `Figure1_discrete_diagT30i
+nfect.png' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.156 ...idth]{Figure1_discrete_diagT30infect.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: File `Figure1_discrete_bsmall_infectT10.png' not found on input 
+line 171.
+
+
+./variation1.tex:171: Package pdftex.def Error: File `Figure1_discrete_bsmall_i
+nfectT10.png' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.171 ...h]{Figure1_discrete_bsmall_infectT10.png}
+                                                  \hfill
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: File `Figure1_discrete_bsmall_infectT20.png' not found on input 
+line 172.
+
+
+./variation1.tex:172: Package pdftex.def Error: File `Figure1_discrete_bsmall_i
+nfectT20.png' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.172 ...h]{Figure1_discrete_bsmall_infectT20.png}
+                                                  \hfill
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: File `Figure1_discrete_bsmall_infectT30.png' not found on input 
+line 173.
+
+
+./variation1.tex:173: Package pdftex.def Error: File `Figure1_discrete_bsmall_i
+nfectT30.png' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.173 ...h]{Figure1_discrete_bsmall_infectT30.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+[3]
+Overfull \hbox (138.03638pt too wide) in alignment at lines 217--232
+ [][][] []
+ []
+
+[4]
+Underfull \hbox (badness 10000) in paragraph at lines 235--238
+
+ []
+
+[5] [6]
 
 Package biblatex Warning: No driver for entry type 'author'.
-(biblatex)                Using fallback driver on input line 116.
+(biblatex)                Using fallback driver on input line 282.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 120.
-[3]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 120.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 286.
+[7]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 286.
  (./variation1.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 120.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 120.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 286.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 286.
 Package rerunfilecheck Info: File `variation1.out' has not changed.
-(rerunfilecheck)             Checksum: F4AAD2D73CB72C907CCEEE2C51BF4673;318.
+(rerunfilecheck)             Checksum: 026D2237D2B1579C829F94901486CC7D;759.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
 Package logreq Info: Writing requests to 'variation1.run.xml'.
 \openout1 = `variation1.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 15642 strings out of 480471
- 263326 string characters out of 5899411
- 941573 words of memory out of 5000000
- 31459 multiletter control sequences out of 15000+600000
+ 15968 strings out of 480471
+ 274049 string characters out of 5899411
+ 942700 words of memory out of 5000000
+ 31738 multiletter control sequences out of 15000+600000
  535773 words of font info for 36 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 37i,13n,45p,817b,1295s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 37i,13n,45p,1247b,1228s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
 ></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb
 ></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb>
@@ -762,10 +1091,10 @@ xlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/tex
 live/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texli
 ve/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texliv
 e/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on variation1.pdf (4 pages, 159587 bytes).
+Output written on variation1.pdf (8 pages, 175454 bytes).
 PDF statistics:
- 115 PDF objects out of 1000 (max. 8388607)
- 95 compressed objects within 1 object stream
- 16 named destinations out of 1000 (max. 500000)
- 41 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 167 PDF objects out of 1000 (max. 8388607)
+ 142 compressed objects within 2 object streams
+ 32 named destinations out of 1000 (max. 500000)
+ 89 words of extra memory for PDF output out of 10000 (max. 10000000)
 

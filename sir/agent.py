@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 class Person():
     """
     An agent representing a person.
+    Determine the state of the individual, and change the state of the individual.
 
     """
 
@@ -12,13 +13,13 @@ class Person():
 
     def is_infected(self):
         """
-        returns true if the person has  been infected
+        returns true if the person has been infected
         """
         return self.infected
 
     def is_willinfected(self):
         """
-        return true if the person is Susceptible
+        return true if the person is susceptible
         """
         return self.willinfect
 

@@ -1,5 +1,11 @@
-\BOOKMARK [1][-]{section.1}{Part 4}{}% 1
-\BOOKMARK [2][-]{subsection.1.1}{Modelling the usage of mask}{section.1}% 2
-\BOOKMARK [2][-]{subsection.1.2}{Fitting the data with SIR model}{section.1}% 3
-\BOOKMARK [2][-]{subsection.1.3}{Visualization of Covid-19}{section.1}% 4
-\BOOKMARK [1][-]{section.2}{Bibliography}{}% 5
+\BOOKMARK [1][-]{section.1}{Introduction to the SIR Model and Notation}{}% 1
+\BOOKMARK [1][-]{section.2}{Python Package 'sir'}{}% 2
+\BOOKMARK [1][-]{section.3}{Results of Simulations}{}% 3
+\BOOKMARK [2][-]{subsection.3.1}{Discrete Agent-Based Model}{section.3}% 4
+\BOOKMARK [2][-]{subsection.3.2}{Continuous/ODE-Based Model}{section.3}% 5
+\BOOKMARK [1][-]{section.4}{Variations and Improvements}{}% 6
+\BOOKMARK [2][-]{subsection.4.1}{Modelling the usage of mask}{section.4}% 7
+\BOOKMARK [2][-]{subsection.4.2}{Fitting the data with SIR model}{section.4}% 8
+\BOOKMARK [2][-]{subsection.4.3}{Visualization of Covid-19}{section.4}% 9
+\BOOKMARK [2][-]{subsection.4.4}{Data visualization of Covid-19}{section.4}% 10
+\BOOKMARK [1][-]{section.5}{Bibliography}{}% 11
