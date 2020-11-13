@@ -38,12 +38,16 @@ def run_Simulation2(b, k, N=100, T=10, start = 1):
     newrecover = [i/N for i in recover]
     newsuspect = [s/N for s in suspect]
     newinfect = [i/N for i in infect]
-    plt.plot(range(T+1), recover, label = "r: percentage of removed")
-    plt.plot(range(T+1), suspect, label = "s: percentage of susceptible")
-    plt.plot(range(T+1), infect, label = "i: percentage of infected")
+    plt.plot(range(T+1), newrecover, label = "r: percentage of removed")
+    plt.plot(range(T+1), newsuspect, label = "s: percentage of susceptible")
+    plt.plot(range(T+1), newinfect, label = "i: percentage of infected")
+    plt.xlabel("T")
+    plt.ylabel("Percentage")
+    plt.title("Percentage of Population, Discrete \n b = "+str(b)+", k = "+str(k))
     plt.legend()
     plt.show()
 
+    
     
 def checktotalinfect(b, k, N, T, start = 1):
     """
@@ -252,11 +256,12 @@ def runodesimulation(tspan, xstart, b, k, teval):
     plt.plot(sol.t, sol.y[0], label = "s: percentage of susceptible")
     plt.plot(sol.t, sol.y[1], label = "i: percentage of infected")
     plt.plot(sol.t, sol.y[2], label = "r: percentage of removed")
-    plt.title("ODE Simulation with s0 = " + str(xstart[0]) + "i0 = "+str(xstart[1]))
-    plt.xlabel("days")
+    plt.title("Percentage of Population, Continuous \n b = "+str(b)+", k = "+str(k))
+    plt.xlabel("T")
     plt.ylabel("percentage")
     plt.legend()
     plt.show()
+    
     
 def checktotalinfectpeople(x, b, k, T):
     """
@@ -308,22 +313,44 @@ def plotodeinfectphasediagram(x, blist, xlist, T):
     plt.ylabel("b")
     plt.show()
 
-tspan = (0, 20)
-xstart = np.array([4500, 500, 0])
-teval = np.linspace(0, 20, 200);
-runodesimulation(tspan, xstart, 8, 0.4, teval)
-tspan2 = (0, 30)
-xstart2 = np.array([9800, 200, 0])
-teval2 = np.linspace(0, 30, 300);
-runodesimulation(tspan2, xstart2, 4, 0.95, teval2);
+    
+    
+# Generate plots
+tspan = (0, 30)
+xstart = np.array([19900, 100, 0])
+teval1 = np.linspace(0, 30, 300)
+# for b = 2 
+runodesimulation(tspan, xstart, 2, 0.2, teval1)
+runodesimulation(tspan, xstart, 2, 0.5, teval1)
+runodesimulation(tspan, xstart, 2, 0.8, teval1)
+# for b = 5
+runodesimulation(tspan, xstart, 5, 0.2, teval1)
+runodesimulation(tspan, xstart, 5, 0.5, teval1)
+runodesimulation(tspan, xstart, 5, 0.8, teval1)
+
+
+
+# Generate phase diagrams
+xstart = np.array([19900, 100, 0])
 blist = np.arange(10, 0, -1)
 klist = np.arange(0, 1, 0.1)
-plotodephasediagram(np.array([790000, 10, 0]), blist,klist, 10)
-plotodephasediagram(np.array([790000, 10, 0]), blist,klist, 20)
-plotodephasediagram(np.array([790000, 10, 0]), blist,klist, 30)
-plotodeinfectphasediagram(np.array([790000, 10, 0]), blist,klist, 10)
-plotodeinfectphasediagram(np.array([790000, 10, 0]), blist,klist, 20)
-plotodeinfectphasediagram(np.array([790000, 10, 0]), blist,klist, 30)
+plotodephasediagram(xstart, blist,klist, 10)
+plotodephasediagram(xstart, blist,klist, 20)
+plotodephasediagram(xstart, blist,klist, 30)
+plotodeinfectphasediagram(xstart, blist,klist, 10)
+plotodeinfectphasediagram(xstart, blist,klist, 20)
+plotodeinfectphasediagram(xstart, blist,klist, 30)
 
+
+# Phase diagrams for b < 1
+xstart = np.array([19900, 100, 0])
+blist = np.arange(1, 0, -0.1)
+klist = np.arange(0, 1, 0.1)
+plotodephasediagram(xstart, blist, klist, 10)
+plotodephasediagram(xstart, blist, klist, 20)
+plotodephasediagram(xstart, blist, klist, 30)
+plotodeinfectphasediagram(xstart, blist,klist, 10)
+plotodeinfectphasediagram(xstart, blist,klist, 20)
+plotodeinfectphasediagram(xstart, blist,klist, 30)
 
 
