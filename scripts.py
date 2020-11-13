@@ -266,7 +266,7 @@ def runodesimulation(tspan, xstart, b, k, teval):
 def checktotalinfectpeople(x, b, k, T):
     """
     Compute the total percentage of the population infected (i+r) and
-    percentage of the population infected (i) for b >= 1
+    percentage of the population infected (i)
     """
     x = convertvector(x)
     tspan = (0, T)
@@ -281,7 +281,7 @@ def checktotalinfectpeople(x, b, k, T):
 def plotodephasediagram(x, blist, xlist, T):
     """
     Generate ODE phase diagram of total percentage of the population infected (i+r)
-    for b >= 1
+
     """
     cts = np.zeros((len(blist), len(xlist)))
     for j,b in enumerate(blist):
@@ -299,7 +299,7 @@ def plotodephasediagram(x, blist, xlist, T):
 def plotodeinfectphasediagram(x, blist, xlist, T):
     """
     Generate ODE phase diagram of percentage of the population infected (i)
-    for b >= 1
+
     """
     cts = np.zeros((len(blist), len(xlist)))
     for j,b in enumerate(blist):
