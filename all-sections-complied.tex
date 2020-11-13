@@ -45,7 +45,7 @@
 
 
 \section{Introduction to the SIR Model and Notation}
-The susceptible-infected-removed (SIR) model is built based on the first-order derivative to model the spread of infectious disease, where the time dependent variables $S$, $I$, $R$ each represent the following populations:
+The susceptible-infected-removed (SIR) model is one of the compartmental models that simplify the mathematical modeling to the spread of infectious disease, where the time dependent variables $S$, $I$, $R$ each represent the following populations:
 
 $S$(susceptible): number of individuals who are not infected but could become infected
 
@@ -55,7 +55,7 @@ $R$(removed): number of individuals who are either recovered and immune or have 
 
 And $s$, $i$, $r$ are used to represent the proportion of susceptible, infected and removed individuals among the population.
 
-There are two parameters $b$ and $k$ in the model, where $b$ indicates the number of interactions each day that could spread the disease (per individual) and $k$ indicates the fraction of the infectious population which recovers each day.
+There are two parameters $b$ and $k$ in the model, where $b$ indicates the number of contacts each day by an individual who can spread the disease and $k$ indicates the fraction of the infectious population which recovers each day.
 
 In the ODE-based model, we can get the following system of differential equations, where $t$ is time:
 
@@ -70,9 +70,9 @@ $\frac{di}{dt} = b * s(t) * i(t) - k * i(t)$
 \section{Results of Simulations}
 \subsection{Discrete Agent-Based Model}
 
-To investigate how a new disease spreads, we run the simulations of the discrete agent-based model and the continuous ODE model, starting with 100 infectious individuals out of total population 20000.
+To investigate how a new disease spreads, we run the simulations with both discrete agent-based model and continuous ODE model, starting with 100 infectious individuals among a total population of 20000.
 
-We generate several plots to show how s, i, and r change over the length of the simulation for a couple different choices of k and b. First we check the plots for b = 2, which means we assume each individual has two interactions each day that could spread the disease, with different k values.
+We generate several plots to show how s, i, and r change during the simulation for different choices of k and b. First we check the plots for b = 2, which means we assume each individual has two interactions each day that could spread the disease, with different k values.
 
 \begin{figure}[htp]
 
@@ -88,7 +88,7 @@ We generate several plots to show how s, i, and r change over the length of the 
 
 
 
-From the plots, we find that when the recovery rate is low (0.3), finally all people are removed, which indicates that all people were infectious and either have recovered and are now immune, or have died. As the recovery rate increases to a high value (0.8), the trends change obviously. The percentage of infected people does not increase, and the percentage of removed people increases to approximately 0.4 while the percentage of susceptible people decreases to 0.6. Finally, both trends of removed and susceptible people stays constant. In this case, there are fairly large proportion of individuals who are never infected. Thus, when the recovery rate k is large enough (larger than 0.6) and b is relatively small (less than 3), then the herd immunity is eventually achieved. The herd immunity occurs when a large portion of a community becomes immune to a disease, making the spread of disease unlikely, so the whole community becomes protected. Next, we increase the value of b and see whether the trends change.
+From the plots, we find that when the recovery rate is low (0.3), finally all people are removed, which indicates that all people were infectious and either have recovered and are now immune, or have died. As the recovery rate rises to a high level (0.8), the trends change obviously. The percentage of infected people does not increase, and the percentage of removed people increases to approximately 0.4 while the percentage of susceptible people decreases to 0.6. Finally, both trends of removed and susceptible people stays constant. In this case, there are fairly large proportion of individuals who are never infected. Thus, when the recovery rate k is large enough (larger than 0.6) and b is relatively small (less than 3), then the herd immunity is eventually achieved. The herd immunity occurs when a large portion of a community becomes immune to a disease, making the spread of disease unlikely, so the whole community becomes protected. Next, we increase the value of b and see whether the trends change.
 
 
 \begin{figure}[htp]
@@ -198,9 +198,9 @@ Based on figure 6, when b is really small, the percentage of infected people can
 \subsection{Modelling the usage of mask}
 In this section, we study the effectiveness of mask in the spreading of the novel COVID-19 disease and develop a variation of the susceptible-infected-removed (SIR) model that provides a theoretical framework to investigate its spread within a community. More specifically, we will investigate how the use of mask will influence the percentage of deaths and hospitalizations with respect to different infectious contact rate.The model is based on the paper "To mask or not to mask: Modeling the potential for face mask use by the general public to curtail the COVID-19 pandemic" by Steffen E. Eikenberry et al. Although it is now recommended and a common practice to wear mask to limit the spread of COVID 19, it is very controversial at the beginning of the pandemic that whether it is neccesary and efficient to wear mask. So, we believe it is meaningful to understand quantitatively more about this topic.
 In this model, we will introduce seven varaibles. S(t),E(t),I(t),H(t),A(t),R(t) each denote susceptible, exposed, symptomatic infectious, hospitalized, asymptomatic infectious, and recovered classes, with an assumption that people progress from \\
-S $\rightarrow$ E $\rightarrow$ A $\rightarrow$ I $\rightarrow$H \\ At each state, infectious people will be able to recover, and only people in severe condition will go to hosptial and may die.\\D(t) is also included to track cumulative deaths. Two sets of ODE euqations will be used during simulation to find how use of mask will impact the spread of disease. We first consider a baseline model for the case where no masks are used. In the second set of odes, we will introduce more variables
+S $\rightarrow$ E $\rightarrow$ A $\rightarrow$ I $\rightarrow$H \\ At each state, infectious people will be able to recover, and only people in severe condition will go to hosptial and may die.\\D(t) is also included to track cumulative deaths. Two sets of ODE euqations will be used during simulation to find how use of mask will impact the spread of disease. We first consider a baseline model for the case where no masks are used. In the second set of ODEs, we will introduce more variables
 $S_{U}(t)$,$E_{U}(t)$,$I_{U}(t)$,$H_{U}(t)$,$A_{U}(t)$,$R_{U}(t)$,$S_{M}(t)$,$E_{M}(t)$,$I_{M}(t)$,$H_{M}(t)$,$A_{M}(t)$,$R_{M}(t)$ to divide the population in two part: The population wearing masks and the one not wearing masks
-Here are two sets of Odes:\\
+Here are two sets of ODEs:\\
 \begin{minipage}{0.45\textwidth}
 \begin{eqnarray}
   \frac{dS}{dt} &=& -\beta{(t)}(I+\eta A)\frac{S}{N}\nonumber\\
@@ -244,9 +244,9 @@ Here, an assumption is made that the inward efficiency and outward efficiency of
 
 
 \subsection{Fitting the data with SIR model}
-In this section we will try to fit the SIR model with the SARS  coronavirus. We try to use the SARS dataset in China from the link:\cite{SARSsource}
+In this section we will try to fit the SIR model with the SARS coronavirus. The SARS dataset in China will be collected from the link:\cite{SARSsource}
 
-Generally, We collect the dataset from the 2003-03-17 to 2003-06-01. It was mainly spreaded in China. To be specific,On April 22nd a hospital was established in Beijing and most of infected people are sent to the hospital.After that, the SARS coronavirus was controlled. In this model, we will try to simulate parameters and explore how building the hospital controlled the coronavirus. We use the ode simulation to simulate the most appropriate parameters b,k from data in 2003-03-17 to 2003-04-22.Then we add a variable $\gamma_{H}$ inside the dataset.And we establish the following ode:
+The dataset described the disease spread in China from 2003-03-17 to 2003-06-01, during which an emergency specialty field hospital was built on April 22nd in Beijing to treat the most severely infected individuals. Since the establishment of the hospital, the SARS coronavirus got controlled. In this model, we will try to simulate parameters and explore how the hospital as a major fator limited the spread of coronavirus. We will adopt the ODE simulation in the original SIR model to fit the data from 2003-03-17 to 2003-04-22 with choice of b and k. Then we introduce a new variable $\gamma_{H}$ to the model and come up with the following ODEs:
 \begin{eqnarray}
   \frac{dS}{dt} &=& -\beta I*\frac{S}{N}*(1-\gamma_{H})\\
   \frac{dI}{dt} &=& \beta *\frac{S}{N}*I*(1-\gamma_{H})- k*I\\
@@ -254,19 +254,8 @@ Generally, We collect the dataset from the 2003-03-17 to 2003-06-01. It was main
   \frac{dD}{dt} &=& \gamma_{H}*I*\delta\\
 \end{eqnarray}
 
-Using the first 30 days from 2003-03-17 to 2003-04-22, we may find appropriate $\beta$ and k as well as the value $\delta$,representing the death rate.To do so, we will experiment with lots of $\beta$, k,$\delta$ starting from common default values and try to find the most appropriate values such that MSE between the simulated data and real data are small(S-t,R-t,D-t).  Then, we will find appropriate $\gamma_{H}$ so that the trend of data will be corresponded with the later data set(from  2003-04-22 to 2003-06-01). As what we know, China almost sent all the illness people to the hospital located in Beijing. And we try to see whether $\gamma_{H}$ is close to 1.
-Finally, we will build a 1-d plot showing the relationship between the length of SARS coronavirus(end point is no infected people) with the percentage of people that we send to hospital.($\gamma_{H}$)
-
-
-\subsection{Visualization of Covid-19}
-In this part we will do the visualization to reflect the increasing trend and distritution in United States.
-Firstly, we will do the line plot to reflect the trend of covid-19 in several states. We use the library from John hopkins university to attain the total covid-19 death people as well as the confirmed cases every 7 days in several states. The python packages we use are the mplcursor and matplotlib. We try to move the cursor along the lines in different days and relevant information(death and confirmed cases each day) will be presented.
-
-Apart from that, we will implement several map that recording the Confirmed cases as well as the recovered cases in the United States in different days. We choose several days from 6 months(April to November) and make several plots. We can attain the longitude and latitude from the same library. Then we can build our map according to these information. We will use the package matplotlib, plotpl or bokeh to make the graph clear. It will reflect the distribution of covid-19 through the United States.
-
-
-
-
+We will use data from 2003-03-17 to 2003-04-22 to find appropriate values of $\beta$, k as well as the $\delta$, which represent the death rate. This can be achieved by experimenting with different values of $\beta$, k,$\delta$ and choose the ones that return the smallest MSE between the simulated data and real data(S-t,R-t,D-t). Then, $\gamma_{H}$ can be found so that the trend of previous data will align with the rest of the data from  2003-04-22 to 2003-06-01. Since almost all sick people were sent to the hospital located in Beijing, we will check whether our realized $\gamma_{H}$ is close to 1.
+Finally, we will build a 1-d plot indicating the relationship between the length of SARS coronavirus(end when no one infected) and the percentage of people that we send to hospital.($\gamma_{H}$)
 
 
 \subsection{Data visualization of Covid-19}
