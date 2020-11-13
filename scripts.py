@@ -205,6 +205,7 @@ def plotphasediagraminfectsmall(blist,klist,N,T,start):
     plt.show()
 
 
+
 # Phase diagrams for b < 1
 blist = np.arange(1, 0, -0.1)
 klist = np.arange(0, 1, 0.1)
