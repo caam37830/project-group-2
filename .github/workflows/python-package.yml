@@ -34,9 +34,4 @@ jobs:
       working directory: ./test
       run: |
         pytest test.py
-    - name: Run scripts
-      working directory:./scripts
-      run: |
-        python scripts.py
-        python mask.py
-        python improveagent.py
+    
