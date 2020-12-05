@@ -32,7 +32,9 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Test with pytest
       run: |
-        pytest test.py
+        pytest ./test test.py
     - name: Run scripts
       run: |
-        python scripts.py
+        python ./scripts scripts.py
+        python ./scripts mask.py
+        python ./scripts improveagentscript.py
