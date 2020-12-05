@@ -1,6 +1,6 @@
 import numpy as np
 import numpy.linalg as la
-from sklearn.neighbors import BallTree
+#from sklearn.neighbors import BallTree
 from scipy.spatial.distance import pdist
 import networkx as nx
 class Person():
