@@ -3,3 +3,5 @@ numpy
 scipy
 matplotlib
 sympy
+networkx
+scikit-learn
