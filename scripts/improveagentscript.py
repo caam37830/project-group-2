@@ -7,7 +7,7 @@ from sir.improveagent import *
 import numpy as np
 import numpy.linalg as la
 import matplotlib.pyplot as plt
-from sklearn.neighbors import BallTree
+#from sklearn.neighbors import BallTree
 from scipy.spatial import KDTree
 from scipy.spatial import cKDTree
 from scipy.spatial.distance import pdist
