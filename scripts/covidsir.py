@@ -3,12 +3,12 @@ from scipy.integrate import solve_ivp
 import matplotlib.pyplot as plt
 import pandas as pd
 
-df = pd.read_csv("time_series_covid19_confirmed_global.csv")
+df = pd.read_csv("files/time_series_covid19_confirmed_global.csv")
 #Here we take the Hubei
 dfc = df.iloc[69,:][4:80]
-df2 = pd.read_csv("time_series_covid19_deaths_global.csv")
+df2 = pd.read_csv("files/time_series_covid19_deaths_global.csv")
 dfd = df2.iloc[69,:][4:80]
-df3 = pd.read_csv("time_series_covid19_recovered_global.csv")
+df3 = pd.read_csv("files/time_series_covid19_recovered_global.csv")
 dfr = df3.iloc[56,:][4:80]
 #Here we get
 dfrt = dfr+dfd

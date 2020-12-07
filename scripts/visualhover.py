@@ -13,11 +13,11 @@ from bokeh.plotting import figure, save
 from bokeh.resources import CDN
 from bokeh.models.widgets import Tabs, Panel
 
-df2 = pd.read_csv("05-20-2020.csv")
+df2 = pd.read_csv("files/05-20-2020.csv")
 gdf = gpd.GeoDataFrame(
     df2, geometry=gpd.points_from_xy(df2.Long_, df2.Lat))
 
-df4 = gpd.read_file("s_11au16.shp")
+df4 = gpd.read_file("files/s_11au16.shp")
 
 listName = df4["NAME"].tolist()
 glist = gdf.Province_State.tolist()
