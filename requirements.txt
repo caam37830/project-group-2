@@ -5,3 +5,4 @@ matplotlib
 sympy
 networkx
 scikit-learn
+pandas
