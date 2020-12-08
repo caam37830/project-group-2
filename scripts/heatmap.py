@@ -13,6 +13,8 @@ from bokeh.plotting import figure, save
 from bokeh.resources import CDN
 from bokeh.models.widgets import Tabs, Panel
 
+
+# Example: use the date set of 05-20-2020
 df2 = pd.read_csv("files/05-20-2020.csv")
 gdf = gpd.GeoDataFrame(
     df2, geometry=gpd.points_from_xy(df2.Long_, df2.Lat))
@@ -45,7 +47,7 @@ color_mapper = LinearColorMapper(palette=palette)
 
 TOOLS = "pan,wheel_zoom,box_zoom,reset,hover,save"
 
-p = figure(title="USA", tools=TOOLS, x_axis_location=None, y_axis_location=None, width=800, height=500)
+p = figure(title="USA", tools=TOOLS, x_axis_location=None, y_axis_location=None, width=1700, height=800)
 
 
 p.patches('xs', 'ys', fill_alpha=0.7, fill_color={'field': 'Confirmed', 'transform': color_mapper},
@@ -54,8 +56,14 @@ p.patches('xs', 'ys', fill_alpha=0.7, fill_color={'field': 'Confirmed', 'transfo
 
 hover = p.select_one(HoverTool)
 hover.point_policy = "follow_mouse"
-hover.tooltips = [("Provincia:", "@Province_State"),
-                  ("Confirmed:","@Confirmed"),
-                   ("Death:","@Deaths")]
+hover.tooltips = [("State", "@Province_State"),
+                  ("Confirmed","@Confirmed"),
+                  ("Recovered","@Recovered"),
+                  ("Death","@Deaths")]
 
-output_file("05-20-USA.html", title="Covid19USA")
+p.add_tools(hover)
+
+show(p)
+
+output_file("05-20-USA.html", title="Covid19 USA")
+
