@@ -40,3 +40,5 @@ jobs:
         python improveagentscript.py
         python mask.py
         python scripts.py
+        python covidsir.py
+        python visualhover.py
