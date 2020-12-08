@@ -125,11 +125,9 @@ plotcenterrange()
 
 
 
-
+"""
 def plotrandomcornerrange():
-    """
-    show how the i value change with p
-    """
+
     plist1 = np.arange(0.02,0.1,0.02)
     plist = np.arange(0.1,1,0.1)
     infectlist = []
@@ -152,4 +150,13 @@ def plotrandomcornerrange():
     plt.legend()
     plt.show()
 
-plotrandomcornerrange()
+"""
+#plotrandomcornerrange()
+#no need for us to use this function
+
+valuecorner = checkinfectb(0.5,20000,30,200,p = 0.05,q = np.sqrt(2/(20000*math.pi)),startcorner=True)[0]
+valuecenter = checkinfectb(0.5,20000,30,200,p = 0.05,q = np.sqrt(2/(20000*math.pi)),startcenter=True)[0]
+valuerandom = checkinfectb(0.5,20000,30,200,p = 0.05,q = np.sqrt(2/(20000*math.pi)))[0]
+print("p = 0.05, starting randomly, the total infected number is "+ str(valuerandom))
+print("p = 0.05, starting from corner, the total infected number is "+ str(valuecorner))
+print("p = 0.05, starting from center, the total infected number is "+ str(valuecenter))

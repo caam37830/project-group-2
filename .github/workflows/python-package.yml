@@ -34,6 +34,8 @@ jobs:
       working-directory: ./test
       run: |
         pytest test.py
+        pytest testimproveagent.py
+        pytest testpde.py
     - name: Run scripts
       working-directory: ./scripts
       run: |
@@ -41,4 +43,5 @@ jobs:
         python mask.py
         python scripts.py
         python covidsir.py
-        python visualhover.py
+        python heatmap.py
+        python pdesimulation.py
