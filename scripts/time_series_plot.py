@@ -11,6 +11,7 @@ from bokeh.palettes import Spectral3
 
 
 ### Confirmed
+# Note the data set is cumulative
 confirmed_ds = pd.read_csv('time_series_covid19_confirmed_US.csv')
 cov1 = confirmed_ds.loc[:, "1/22/20":"12/4/20"]
 cov2 = confirmed_ds.loc[:, "Province_State"]
@@ -44,9 +45,9 @@ ds3.columns.name = None
 #ds4 = ds3.rename_axis(None, axis = 1)
 
 
-# Make interactive time series plot for states
+# Make interactive time series plot of daily confirmed for states
 source = ColumnDataSource(ds3)
-p = figure(x_axis_type='datetime')
+p = figure(x_axis_type='datetime', title="Daily Confirmed Cases")
 p.line(x='new_date', y='Alabama', line_width=2, source=source)
 hover = HoverTool()
 hover.tooltips=[
@@ -56,6 +57,7 @@ hover.tooltips=[
 p.add_tools(hover)
 show(p)
 
+output_file("TsDailyConfirmed.html")
 
 
 
@@ -68,8 +70,40 @@ show(p)
 
 
 ### Deaths
+# Note the data set is cumulative
+death_ts = pd.read_csv('time_series_covid19_deaths_US.csv')
+death1 = death_ts.loc[:, "1/22/20":"12/4/20"]
+death2 = death_ts.loc[:, "Province_State"]
+death3 = pd.concat([death2, death1], axis=1)
 
+# Compute the cumulative deaths by states
+death_new = death3.groupby('Province_State').sum() 
+# Compute daily death cases
+daily_death = death_new.diff(axis=1)
 
+# Transpose data set
+daily_death_T = daily_death.T
+# Make row name as a column
+dth2 = daily_death_T.rename_axis("date").reset_index()
+
+# Convert date format
+dth2['new_date'] = dth2['date'].apply(date_convert)
+dth3 = dth2.set_index("new_date")
+dth3.columns.name = None
+
+# Make interactive time series plot of daily deaths for states
+source2 = ColumnDataSource(dth3)
+p2 = figure(x_axis_type='datetime', title="Daily Deaths")
+p2.line(x='new_date', y='Alabama', line_width=2, source=source2)
+hover2 = HoverTool()
+hover2.tooltips=[
+    ('Death', '@Alabama'),
+    ('Date', '@date')
+]
+p2.add_tools(hover2)
+show(p2)
+
+output_file("TsDailyDeath.html")
 
 
 
