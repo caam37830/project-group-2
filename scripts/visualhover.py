@@ -54,8 +54,9 @@ p.patches('xs', 'ys', fill_alpha=0.7, fill_color={'field': 'Confirmed', 'transfo
 
 hover = p.select_one(HoverTool)
 hover.point_policy = "follow_mouse"
-hover.tooltips = [("Provincia:", "@Province_State"),
-                  ("Confirmed:","@Confirmed"),
-                   ("Death:","@Deaths")]
+hover.tooltips = [("State", "@Province_State"),
+                  ("Confirmed","@Confirmed"),
+                  ("Recovered","@Recovered"),
+                  ("Death","@Deaths")]
 
 output_file("05-20-USA.html", title="Covid19USA")
