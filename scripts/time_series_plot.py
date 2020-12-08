@@ -42,6 +42,7 @@ def date_convert(date_to_convert):
 ds2['new_date'] = ds2['date'].apply(date_convert)
 ds3 = ds2.set_index("new_date")
 ds3.columns.name = None
+ds3.columns = ds3.columns.str.replace(' ', '')
 #ds4 = ds3.rename_axis(None, axis = 1)
 
 
