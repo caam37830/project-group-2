@@ -17,7 +17,7 @@ from bokeh.models.widgets import Tabs, Panel
 
 # Example: use the date set of 12-04-2020
 # Note the data set is cumulative
-df2 = pd.read_csv("files/05-20-2020.csv")
+df2 = pd.read_csv("files/12-04-2020.csv")
 gdf = gpd.GeoDataFrame(df2, geometry=gpd.points_from_xy(df2.Long_, df2.Lat))
 df4 = gpd.read_file("files/s_11au16.shp")
 
