@@ -57,9 +57,12 @@ def run_Simulation2(k,N=100,T=10,start = 1,p=0.5,q=0.08,startcenter = False,star
     newrecover = [i/N for i in recover]
     newsuspect = [s/N for s in suspect]
     newinfect = [i/N for i in infect]
-    plt.plot(range(T+1),newrecover,label = "recoverpeople")
-    plt.plot(range(T+1),newsuspect,label = "suspectpeople")
-    plt.plot(range(T+1),newinfect,label = "infectpeople")
+    plt.plot(range(T+1),newrecover,label = "r: percentage of removed ")
+    plt.plot(range(T+1),newsuspect,label = "s: percentage of susceptible")
+    plt.plot(range(T+1),newinfect,label = "i: percentage of infected")
+    plt.xlabel("T")
+    plt.ylabel("percentage")
+    plt.title("Percentage of Population, Discrete")
     plt.legend()
     plt.show()
 
@@ -117,8 +120,9 @@ def plotcenterrange():
         infectlist.append(checkinfectb(0.5,20000,30,200,p = i,q = np.sqrt(2/(20000*math.pi)),startcenter=True)[0])
     plt.plot(np.hstack((plist1,plist)),infectlist)
     plt.title("centerplot")
-    plt.xlabel("change of p")
-    plt.ylabel("change of total infected people")
+    plt.xlabel("p")
+    plt.ylabel("total number of individuals infected")
+    plt.title("Total Number of Individuals Infected vs p")
     plt.show()
 
 plotcenterrange()

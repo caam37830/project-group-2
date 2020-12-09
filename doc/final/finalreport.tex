@@ -125,7 +125,7 @@ Now, we analyze how total percentage of infected people i changes with p. We cho
  \section{Covid-19 fit}
  In this variation, we will fit the Covid-19 dataset in China Hubei Province. Instead of using the SARS dataset claimed in midterm report, we find that Covid-19 dataset in China is complete. \\
 
-Now, we would like to discuss how we fit the covid-19 data. We collect the dataset from ... in first 76 days. The covid-19 was controlled in China in around 76 days and building the specialized hospital helped the government to collect severe patients so that the transmission of covid-19 was controlled. We divide the process of simulation in two parts. 
+Now, we would like to discuss how we fit the covid-19 data. We collect the dataset from ... in first 76 days. The covid-19 was controlled in China in around 76 days and building the specialized hospital helped the government to collect severe patients so that the transmission of covid-19 was controlled. We divide the process of simulation in two parts.
 
 \section{Modelling the usage of mask}
 \subsection{Modified SIR model with mask}
@@ -169,20 +169,10 @@ Here are the two sets of ODEs:\\
 
 \subsection{Implementation}
 
-We ran the simulation and recorded what happened in several days. Here, β is the infectious contact rate, σ is the transition exposed to infectious, η is the infectiousness factor for asymptomatic carrier, α is the fraction of infections that become symptomatic, φ is rate of hospitalization, γA is the recovery rate for asymptomatic, γI is the recovery rate, symptomatic, γH is the recovery rate for hospitalized, σ is the death rate in hospital, ε0 is the outward efficiency of the masks, while εi is the inward efficiency of the masks.
-Then we found the default estimated values for all parameters with population masked and not masked from the source [2]. Here, an assumption was made that the inward efficiency and outward efficiency of masks are the same ε0 = ε1. We drew a 2 dimensional phase diagram to show how the efficiency of mask (homemade mask or surgery mask) and the percentage of masked people will influence the hospitalization as well as the total deaths among the population.
+We ran the simulation and recorded what happened in several days. Here, $\beta$ is the infectious contact rate, $\sigma$ is the transition exposed to infectious, $\eta$ is the infectiousness factor for asymptomatic carrier, $\alpha$ is the fraction of infections that become symptomatic, $\phi$ is rate of hospitalization, $\gamma$ A is the recovery rate for asymptomatic, $\gamma$I is the recovery rate of  symptomatic, H is the recovery rate for hospitalized, $\sigma$ is the death rate in hospital, $\epsilon_{0}$ is the outward efficiency of the masks, while $\epsilon_{I}$ is the inward efficiency of the masks.
+Then we found the default estimated values for all parameters with population masked and not masked from the source [2]. Here, an assumption was made that the inward efficiency and outward efficiency of masks are the same $\epsilon_{0} = \epsilon_{1}$. We drew a 2 dimensional phase diagram to show how the efficiency of mask (homemade mask or surgery mask) and the percentage of masked people will influence the hospitalization as well as the total deaths among the population.
 
 
-\subsection{Results}
----------------[ADD. Figures]
-
-The figures above shows the relative peak hospitalizations and cumulative mortality under simulated epidemics, under either a base  = 0.5 or 1.5 day −1. These results are relative to the case where no masks are used. From the graphs presented, we can observe asymmetry between coverage and efficacy, and increasing the coverage of mederately effective mask is generally more useful than increasing the effectiveness of masks from a starting point of moderate coverage. The result agreed with the one concluded from the paper. Therefore, findings suggest that face mask should be adopted as early and universal as possible, even if most masks are not highly effective.
-
-Yet, there are some limitations in our model. Since we used default values based on the source paper, it may not match with the situation in reality, and can be improved. Further, we assumed the inward and outward efficacy are the same, which might not be true in practice, and the values could be improved with more detailed and carefully designed research and study.
-
-
-
-------------ADD directions for further investigation :
 
 
 
