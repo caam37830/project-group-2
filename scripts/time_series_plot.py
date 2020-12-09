@@ -16,7 +16,7 @@ from bokeh.palettes import Spectral3
 ### Confirmed
 
 # Note the data set is cumulative
-confirmed_ds = pd.read_csv('time_series_covid19_confirmed_US.csv')
+confirmed_ds = pd.read_csv('files/time_series_covid19_confirmed_US.csv')
 cov1 = confirmed_ds.loc[:, "1/22/20":"12/4/20"]
 cov2 = confirmed_ds.loc[:, "Province_State"]
 cov3 = pd.concat([cov2, cov1], axis=1)
@@ -420,7 +420,7 @@ show(p_South)
 ### Deaths
 
 # Note the data set is cumulative
-death_ts = pd.read_csv('time_series_covid19_deaths_US.csv')
+death_ts = pd.read_csv('files/time_series_covid19_deaths_US.csv')
 death1 = death_ts.loc[:, "1/22/20":"12/4/20"]
 death2 = death_ts.loc[:, "Province_State"]
 death3 = pd.concat([death2, death1], axis=1)
