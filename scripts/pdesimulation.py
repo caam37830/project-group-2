@@ -36,9 +36,12 @@ for k in range(200**2):
     s = s+sol.y[k]
     i = i+sol.y[k+200**2]
     r = r+sol.y[k+2*(200**2)]
-plt.plot(sol.t,s/(200**2),label = "susceptible")
-plt.plot(sol.t,i/(200**2),label = "infected")
-plt.plot(sol.t,r/(200**2),label = "recovered")
+plt.plot(sol.t,s/(200**2),label = "s: percentage of susceptible")
+plt.plot(sol.t,i/(200**2),label = "i: percentage of infected")
+plt.plot(sol.t,r/(200**2),label = "r: percentage of removed ")
+plt.title("Percentage of Population, Continuous")
+plt.xlabel("T")
+plt.ylabel("percentage")
 plt.legend()
 plt.show()
 xstart2 = generatesum2center(200)
@@ -67,8 +70,8 @@ for q in valuelist:
     listappend.append(value)
 plt.plot(valuelist,listappend)
 plt.xlabel("p")
-plt.ylabel("total infected people")
-plt.title("i change with p")
+plt.ylabel("percentage of individuals infected")
+plt.title("Percentage of Individuals Infected vs p")
 plt.show()
 
 

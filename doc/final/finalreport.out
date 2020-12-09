@@ -1,4 +1,9 @@
-\BOOKMARK [1][-]{section.1}{Spatial Model and Variations}{}% 1
-\BOOKMARK [2][-]{subsection.1.1}{spatial agentbased model}{section.1}% 2
-\BOOKMARK [2][-]{subsection.1.2}{Spatial PDE Model}{section.1}% 3
-\BOOKMARK [1][-]{section.2}{Covid-19fit}{}% 4
+\BOOKMARK [1][-]{section.1}{Abstract}{}% 1
+\BOOKMARK [1][-]{section.2}{Introduction}{}% 2
+\BOOKMARK [1][-]{section.3}{Spatial Model and Variations}{}% 3
+\BOOKMARK [2][-]{subsection.3.1}{spatial agent based model}{section.3}% 4
+\BOOKMARK [2][-]{subsection.3.2}{Spatial PDE Model}{section.3}% 5
+\BOOKMARK [1][-]{section.4}{Covid-19 fit}{}% 6
+\BOOKMARK [1][-]{section.5}{Modelling the usage of mask}{}% 7
+\BOOKMARK [2][-]{subsection.5.1}{Modified SIR model with mask}{section.5}% 8
+\BOOKMARK [2][-]{subsection.5.2}{Implementation}{section.5}% 9

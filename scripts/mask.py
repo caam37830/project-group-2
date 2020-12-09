@@ -22,11 +22,15 @@ tspan = (0,50)
 teval = np.linspace(0,50,200)
 sol = solve_ivp(odemasksimulation,tspan,x,args=(eta,beta,sigma,phi,gammaI,alpha,gammaA,delta,gammah),t_eval=teval)
 #We plot the curve for not wearing mask occasion
-plt.plot(sol.t,sol.y[0],label = "suspect")
+plt.plot(sol.t,sol.y[0],label = "susceptible")
 plt.plot(sol.t,sol.y[1],label = "expose")
-plt.plot(sol.t,sol.y[5],label = "recover")
+plt.plot(sol.t,sol.y[5],label = "recovered")
 plt.plot(sol.t,sol.y[6],label = "death")
 plt.plot(sol.t,sol.y[2]+sol.y[3]+sol.y[4],label = "infected")
+plt.xlabel("T")
+plt.ylabel("percentage")
+plt.title("Percentage of Population")
+
 plt.legend()
 plt.show()
 
@@ -60,9 +64,9 @@ def plotrelativetotaldeath(x,clist,elist,params,T):
     plt.figure(figsize=(8,10))
     plt.imshow(cts,extent=[np.min(elist),np.max(elist),np.min(clist),np.max(clist)],interpolation="nearest",aspect='auto')
     plt.colorbar()
-    plt.title("the ode total death rate at T = "+str(T)+" with beta = "+str(beta))
-    plt.xlabel("change of e")
-    plt.ylabel("change of c")
+    plt.title("Total Death Rate, ODE \n T = "+str(T)+", beta = "+str(beta))
+    plt.xlabel("efficacy")
+    plt.ylabel("coverage")
     plt.show()
 
 
@@ -117,9 +121,9 @@ def plotrelativetotalhospital(x,clist,elist,params,T):
     plt.figure(figsize=(8,10))
     plt.imshow(cts,extent=[np.min(elist),np.max(elist),np.min(clist),np.max(clist)],interpolation="nearest",aspect='auto')
     plt.colorbar()
-    plt.title("the ode total hospital rate at T = "+str(T) +"beta = "+str(beta))
-    plt.xlabel("change of e")
-    plt.ylabel("change of c")
+    plt.title("Peak Hospitalized Rate \n T = "+str(T) +", beta = "+str(beta))
+    plt.xlabel("efficacy")
+    plt.ylabel("coverage")
     plt.show()
 #Now we change beta,
 
