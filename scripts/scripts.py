@@ -7,8 +7,7 @@ from scipy.integrate import solve_ivp
 from sir.agent import *
 import numpy as np
 import matplotlib.pyplot as plt
-
-
+from sir.ode import *
 # Agent-based simulations and plots
 
 def run_Simulation2(b, k, N=100, T=10, start = 1):
@@ -225,11 +224,9 @@ plotphasediagraminfectsmall(blist, klist, 20000, 30, 100)
 
 
 # ODE continuous simulations and plots
-
+"""
 def odesimulation(t, x, b, k):
-    """
-    Generate ODE simulation
-    """
+
     s = x[0]
     i = x[1]
     r = x[2]
@@ -240,9 +237,7 @@ def odesimulation(t, x, b, k):
 
 
 def convertvector(x):
-    """
-    Convert s, i, r into vector of percentage
-    """
+
     s = x[0]
     i = x[1]
     r = x[2]
@@ -250,9 +245,7 @@ def convertvector(x):
 
 
 def runodesimulation(tspan, xstart, b, k, teval):
-    """
-    Run ODE simulation with plot
-    """
+
     xstart = convertvector(xstart)
     sol = solve_ivp(odesimulation, tspan, xstart, args = (b, k), t_eval = teval)
     plt.plot(sol.t, sol.y[0], label = "s: percentage of susceptible")
@@ -263,7 +256,7 @@ def runodesimulation(tspan, xstart, b, k, teval):
     plt.ylabel("percentage")
     plt.legend()
     plt.show()
-
+"""
 
 def checktotalinfectpeople(x, b, k, T):
     """

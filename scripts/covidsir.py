@@ -2,6 +2,10 @@ import numpy as np
 from scipy.integrate import solve_ivp
 import matplotlib.pyplot as plt
 import pandas as pd
+import sys
+import os
+sys.path.append("../")
+from sir.ode import *
 
 df = pd.read_csv("files/time_series_covid19_confirmed_global.csv")
 #Here we take the Hubei
@@ -14,27 +18,7 @@ dfr = df3.iloc[56,:][4:80]
 dfrt = dfr+dfd
 dfi = dfc-dfrt
 
-def odesimulation(t, x, b, k):
-    """
-    Generate ODE simulation
-    """
-    s = x[0]
-    i = x[1]
-    r = x[2]
-    ds = -b*s*i
-    di = b*s*i-k*i
-    dr = k*i
-    return np.array([ds, di, dr])
 
-
-def convertvector(x):
-    """
-    Convert s, i, r into vector of percentage
-    """
-    s = x[0]
-    i = x[1]
-    r = x[2]
-    return np.array([s/(s+i+r), i/(s+i+r), r/(s+i+r)])
 
 
 def runodesimulation4(tspan, xstart, b, k, teval):

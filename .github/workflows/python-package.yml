@@ -39,9 +39,6 @@ jobs:
     - name: Run scripts
       working-directory: ./scripts
       run: |
-        python improveagentscript.py
-        python mask.py
         python scripts.py
+        python time_series_plot.py
         python covidsir.py
-        python map.py
-        python pdesimulation.py
