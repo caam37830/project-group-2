@@ -123,9 +123,28 @@ Now, we analyze how total percentage of infected people i changes with p. We cho
 
 
  \section{Covid-19 fit}
- In this variation, we will fit the Covid-19 dataset in China Hubei Province. Instead of using the SARS dataset claimed in midterm report, we find that Covid-19 dataset in China is complete. \\
+\subsection{Introduction and Implementation}
+In this variation, we will fit SIR model with the Covid-19 dataset in China Hubei Province. Instead of using the SARS dataset claimed in midterm report, we find that Covid-19 dataset in China is complete. \\
 
-Now, we would like to discuss how we fit the covid-19 data. We collect the dataset from ... in first 76 days. The covid-19 was controlled in China in around 76 days and building the specialized hospital helped the government to collect severe patients so that the transmission of covid-19 was controlled. We divide the process of simulation in two parts.
+Now, we would like to discuss how we fit the covid-19 data. We collect the dataset from ... in first 76 days. The covid-19 was controlled in China in around 76 days.Building the specialized hospital helped the government to collect severe patients so that the transmission of covid-19 was controlled. We divide the process of simulation in two phases.Firstly, people were not aware that covid-19 is a kind of coronavirus which can severely influence life . After around 25 days of pandemic period, the goverment started to control the covid19 through building large hosptials for collecting severe patients and announce the policy that all the people should stay at home, especially in province Hubei.From then on, the total infected people was stable after around 50 days and we try to simulate the whole process through the basic SIR model.\\
+
+In the first phase, we assume that we use the default parameters from the source :... $b = 0.35$  and $r = 0.03$ We explore a range of b,k parameters so that in first 25 days, the MSE of the i,r people in Hubei and the simulated i,r values will attain the minimum. We use the function calculatemse to calculate the Mse between the simulated value and practical dataset. We have the conclusion that in first phase, b = 0.23, k = 0.025.
+
+As for the second phase, we apply the same function to find the most appropriate b,k according to caculating mse between simulated data and real dataset. However, the policy is adjusted here and most of infected people are moved to hospitals, the transmission rate b will be much smaller than original value. We try to find b from the range $(0.01,0.04)$ and it works. We find $b_{2}= 0.02,k_{2} = 0.06$. The result is reasonable from the article (source).
+The recovered rate should be around 0.05 per infected person each day. As people recognized the fact that covid-19 is a severe covoriance, most people were wearing masks and stayed at home. Even if they are affected with covid19, the chance for being recovered will be improved.
+
+\subsection{Result and Discussion}
+Following is the result of the simulation of covid19 in Hubei Province.
+
+From the graph, we can see that the observed curve is close to the real dataset with small deviation.
+There are several reasons that the simulated curve is not very close to the real dataset.First of all, the SIR model is a little bit simplified.To be specific, we don't consider the case that some people may be asymptomatic among the population. The recover rate and hospitalized rate is different for asymptomatic group and symptomatic group.A sir model doesn't take account into these variations.
+
+Apart from that, the limitation comes from the incomplete of statistics. To be specific, we know that for a large province in China, it is hard to ensure the dataset is matched with the real case. Some infected people may not be tested as positive while the tested sample is only part of population.
+
+Finally, there is also a possibility that the factors influencing the covid19 is hard to be identified. For instance, we regard the transimission rate and removed rate as constant in two phases. However, the transimission rate or removed rate may change frequently in several weeks due to the change of climate. We can only have a much accurate result if we can have enough research of covid-19.
+
+To be summarized, we can conclude three factors that may influence our simulation, the simplified sir model, the incomplete statistics and complex factors influencing transmission of covid-19. We can have an accurate simulation if we have a much more complex model taking into account different groups among the population , having a method for collecting the complete sample for removed or confirmed individuals, or recognizing what influenced the spread of covid-19 after some research.
+
 
 \section{Modelling the usage of mask}
 \subsection{Modified SIR model with mask}
