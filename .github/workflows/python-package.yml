@@ -42,3 +42,7 @@ jobs:
         python scripts.py
         python time_series_plot.py
         python covidsir.py
+        python improveagentscript.py
+        python mask.py
+        python map.py
+        python pdesimulation.py
