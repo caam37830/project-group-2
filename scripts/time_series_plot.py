@@ -69,7 +69,7 @@ output_file("DailyWestCoast.html")
 source2 = ColumnDataSource(ds3)
 
 p_westcoast = figure(x_axis_type='datetime', title="Daily Confirmed Cases on West Coast", width = 800)
-
+# Add hover tooltips
 plot1 = p_westcoast.line(x='new_date', y='California', line_width=2, 
                          source=source2, color='skyblue', legend_label='California')
 

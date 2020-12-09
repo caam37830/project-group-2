@@ -43,5 +43,5 @@ jobs:
         python mask.py
         python scripts.py
         python covidsir.py
-        python heatmap.py
+        python map.py
         python pdesimulation.py
