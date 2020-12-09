@@ -60,7 +60,7 @@ p = figure(title="Cumulative Confirmed Cases of US 12/04/2020", tools=TOOLS,
 p.patches('xs', 'ys', fill_alpha=0.7, fill_color={'field': 'Confirmed', 'transform': color_mapper},
           line_color='white', line_width=0.5, source=gdffcopysourcesecond)
 
-
+# Add hover tooltips
 hover = p.select_one(HoverTool)
 hover.point_policy = "follow_mouse"
 
