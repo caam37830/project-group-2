@@ -1,0 +1,11 @@
+# packages required to run code
+numpy
+scipy
+matplotlib
+sympy
+networkx
+scikit-learn
+pandas
+bokeh
+shapely
+geopandas
